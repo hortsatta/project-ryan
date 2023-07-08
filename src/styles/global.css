@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import 'fonts.css';
+
+@layer base {
+  body {
+    @apply bg-background;
+    background-image: url('/images/bg-grid.png');
+    background-repeat: repeat;
+    background-attachment: fixed;
+  }
+
+  body * {
+    @apply text-white;
+  }
+}

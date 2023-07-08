@@ -1,0 +1,31 @@
+@font-face {
+  font-family: 'Body';
+  font-weight: 100 400;
+  font-display: swap;
+  font-style: normal;
+  src: url('/fonts/body-400.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Body';
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+  src: url('/fonts/body-500.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Body';
+  font-weight: 600 900;
+  font-display: swap;
+  font-style: normal;
+  src: url('/fonts/body-600.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Heading';
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+  src: url('/fonts/heading-600.woff2') format('woff2');
+}
