@@ -1,7 +1,11 @@
+import { memo } from 'react';
 import cx from 'classix';
 import { StaticImage } from 'gatsby-plugin-image';
 
-import { useMemo, type ComponentProps } from 'react';
+import { BaseButton } from '#components/base/base-button.component';
+import { BaseIcon } from '#components/base/base-icon.component';
+
+import type { ComponentProps } from 'react';
 
 type Props = ComponentProps<'section'> & {
   title: string;
@@ -10,7 +14,7 @@ type Props = ComponentProps<'section'> & {
 
 const styles = { height: window.innerHeight };
 
-export function WelcomeSection({
+export const HomeWelcomeSection = memo(function ({
   className,
   title,
   contentHtml,
@@ -40,6 +44,13 @@ export function WelcomeSection({
               <div
                 dangerouslySetInnerHTML={{ __html: contentHtml as string }}
               />
+              <div className='flex items-center gap-4 pt-16'>
+                <BaseButton variant='primary'>Connect With Us</BaseButton>
+                <BaseButton className='px-[26px] h-[69px]' variant='ghost'>
+                  <span className='text-white text-default'>What We Offer</span>
+                  <BaseIcon name='arrow-square-down' size={22} />
+                </BaseButton>
+              </div>
             </div>
             <div className='relative'>
               {/* Welcome window */}
@@ -103,4 +114,4 @@ export function WelcomeSection({
       </div>
     </section>
   );
-}
+});

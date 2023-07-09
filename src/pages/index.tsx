@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { graphql } from 'gatsby';
 
-import { WelcomeSection } from '#components/home/welcome-section.component';
+import { HomeWelcomeSection } from '#components/home/home-welcome-section.component';
 
 import type { FC } from 'react';
 import type { HeadFC, PageProps } from 'gatsby';
@@ -25,7 +25,11 @@ const IndexPage: FC<Props> = ({ data: { strapiHomePage } }: Props) => {
 
   return (
     <div>
-      <WelcomeSection id='section-welcome' title={title} contentHtml={contentHtml} />
+      <HomeWelcomeSection
+        id='section-welcome'
+        title={title}
+        contentHtml={contentHtml}
+      />
     </div>
   );
 };
