@@ -11,12 +11,17 @@ module.exports = {
         main: '1232px',
       },
       colors: {
+        primary: '#0d67ff',
         secondary: '#21b721',
+        accent: '#3ac2f8',
         backdrop: '#000930',
       },
       fontFamily: {
         body: ['Body', 'sans-serif'],
         heading: ['Heading', 'sans-serif'],
+      },
+      fontSize: {
+        default: ['16px', '24px'],
       },
       keyframes: {
         float: {
