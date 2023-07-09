@@ -11,7 +11,8 @@
     "skipLibCheck": true,
     "baseUrl": "src",
     "paths": {
-      "#components/*": ["components/*"]
+      "#components/*": ["components/*"],
+      "#assets/*": ["assets/*"]
     }
   },
   "include": [

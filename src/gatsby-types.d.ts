@@ -3846,6 +3846,11 @@ type GatsbyImageSharpFluid_withWebp_tracedSVGFragment = { readonly tracedSVG: st
 
 type GatsbyImageSharpFluidLimitPresentationSizeFragment = { readonly maxHeight: number, readonly maxWidth: number };
 
+type IndexPageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type IndexPageQuery = { readonly strapiHomePage: { readonly welcomeContent: { readonly data: { readonly childMarkdownRemark: { readonly html: string | null, readonly frontmatter: { readonly title: string | null } | null } | null } | null } | null } | null };
+
 type SiteDataQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
