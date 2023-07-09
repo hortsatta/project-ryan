@@ -1,4 +1,7 @@
 import { graphql, useStaticQuery } from 'gatsby';
+
+import { CoreHeader } from './core-header.component';
+
 import type { ComponentProps } from 'react';
 
 const query = graphql`
@@ -17,6 +20,7 @@ export function CoreLayout({ children }: ComponentProps<'main'>) {
 
   return (
     <>
+      <CoreHeader />
       {/* <CoreHeader siteTitle={siteTitle} modules={modules} /> */}
       <main>{children}</main>
     </>
