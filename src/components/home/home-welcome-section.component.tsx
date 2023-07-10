@@ -1,7 +1,8 @@
-import { memo } from 'react';
-import cx from 'classix';
+import { memo, useEffect, useRef } from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
+import cx from 'classix';
 
+import { useStore } from '#hooks/use-store.hook';
 import { BaseButton } from '#components/base/base-button.component';
 import { BaseIcon } from '#components/base/base-icon.component';
 
@@ -20,6 +21,21 @@ export const HomeWelcomeSection = memo(function ({
   contentHtml,
   ...moreProps
 }: Props) {
+  const scrollY = useStore((state) => state.scrollY);
+  const setIsBeyondWelcome = useStore((state) => state.setIsBeyondWelcome);
+  const btnConnectRef = useRef<HTMLButtonElement>(null);
+
+  // For header nav's minor links
+  useEffect(() => {
+    if (!btnConnectRef.current) {
+      return;
+    }
+
+    const { top, height } = btnConnectRef.current.getBoundingClientRect();
+    const limit = top + height + 200;
+    setIsBeyondWelcome(scrollY > limit);
+  }, [scrollY]);
+
   return (
     <section
       style={styles}
@@ -45,7 +61,9 @@ export const HomeWelcomeSection = memo(function ({
                 dangerouslySetInnerHTML={{ __html: contentHtml as string }}
               />
               <div className='flex items-center gap-4 pt-16'>
-                <BaseButton variant='primary'>Connect With Us</BaseButton>
+                <BaseButton ref={btnConnectRef} variant='primary'>
+                  Connect With Us
+                </BaseButton>
                 <BaseButton className='px-[26px] h-[69px]' variant='ghost'>
                   <span className='text-default'>What We Offer</span>
                   <BaseIcon name='arrow-square-down' size={22} />
@@ -54,7 +72,7 @@ export const HomeWelcomeSection = memo(function ({
             </div>
             <div className='relative'>
               {/* Welcome window */}
-              <div className='relative -mt-5 drop-shadow-2xl'>
+              <div className='relative -mt-5 drop-shadow-2xl backdrop-blur-sm'>
                 <StaticImage
                   src='../../assets/images/welcome-window.png'
                   alt='welcome window'
