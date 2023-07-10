@@ -12,7 +12,7 @@
   }
 
   body * {
-    @apply text-white/80;
+    @apply text-white;
     @apply font-body;
     font-size: 18px;
     line-height: 26px;
@@ -30,6 +30,7 @@
   }
 
   p {
+    @apply text-white/80;
     line-height: 28px;
   }
 }
