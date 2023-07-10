@@ -47,7 +47,7 @@ export const HomeWelcomeSection = memo(function ({
               <div className='flex items-center gap-4 pt-16'>
                 <BaseButton variant='primary'>Connect With Us</BaseButton>
                 <BaseButton className='px-[26px] h-[69px]' variant='ghost'>
-                  <span className='text-white text-default'>What We Offer</span>
+                  <span className='text-default'>What We Offer</span>
                   <BaseIcon name='arrow-square-down' size={22} />
                 </BaseButton>
               </div>
