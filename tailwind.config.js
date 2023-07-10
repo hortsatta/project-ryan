@@ -12,9 +12,11 @@ module.exports = {
       },
       colors: {
         primary: '#0d67ff',
+        'primary-100': '#29aff9',
+        'primary-200': '#3ac2f8',
         secondary: '#21b721',
         'secondary-100': '#20b721',
-        accent: '#3ac2f8',
+        accent: '#9b00db',
         backdrop: '#000930',
       },
       fontFamily: {

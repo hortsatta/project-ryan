@@ -52,7 +52,8 @@ const config: GatsbyConfig = {
         alias: {
           '#components': 'src/components',
           '#images': 'src/images',
-          // '@hooks': 'src/hooks',
+          '#hooks': 'src/hooks',
+          '#store': 'src/store',
           // '@pages': 'src/pages',
           // '@styles': 'src/styles',
           // '@templates': 'src/templates',

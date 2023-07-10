@@ -12,7 +12,9 @@
     "baseUrl": "src",
     "paths": {
       "#components/*": ["components/*"],
-      "#assets/*": ["assets/*"]
+      "#assets/*": ["assets/*"],
+      "#hooks/*": ["hooks/*"],
+      "#store/*": ["store/*"]
     }
   },
   "include": [
