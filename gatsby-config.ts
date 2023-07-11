@@ -7,7 +7,7 @@ require('dotenv').config({
 const strapiConfig = {
   apiURL: process.env.STRAPI_API_URL,
   accessToken: process.env.STRAPI_TOKEN,
-  collectionTypes: [],
+  collectionTypes: ['service'],
   singleTypes: ['home-page', 'main-menu'],
   remoteFileHeaders: {
     /**
@@ -51,18 +51,17 @@ const config: GatsbyConfig = {
       options: {
         alias: {
           '#components': 'src/components',
-          '#images': 'src/images',
+          '#assets': 'src/assets',
           '#hooks': 'src/hooks',
+          '#models': 'src/models',
           '#store': 'src/store',
-          // '@pages': 'src/pages',
-          // '@styles': 'src/styles',
-          // '@templates': 'src/templates',
         },
         extensions: ['ts', 'tsx'],
       },
     },
     'gatsby-transformer-remark',
     'gatsby-plugin-postcss',
+    'gatsby-plugin-smoothscroll',
   ],
 };
 

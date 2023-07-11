@@ -14,6 +14,7 @@
       "#components/*": ["components/*"],
       "#assets/*": ["assets/*"],
       "#hooks/*": ["hooks/*"],
+      "#models/*": ["models/*"],
       "#store/*": ["store/*"]
     }
   },
