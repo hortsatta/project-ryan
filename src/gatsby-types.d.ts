@@ -375,6 +375,8 @@ type File = Node & {
   readonly birthtime: Maybe<Scalars['Date']>;
   /** @deprecated Use `birthTime` instead */
   readonly birthtimeMs: Maybe<Scalars['Float']>;
+  readonly blksize: Maybe<Scalars['Int']>;
+  readonly blocks: Maybe<Scalars['Int']>;
   readonly changeTime: Scalars['Date'];
   /** Returns the first child node of type ImageSharp or null if there are no children of given type on this node */
   readonly childImageSharp: Maybe<ImageSharp>;
@@ -406,6 +408,7 @@ type File = Node & {
   readonly size: Scalars['Int'];
   readonly sourceInstanceName: Scalars['String'];
   readonly uid: Scalars['Int'];
+  readonly url: Maybe<Scalars['String']>;
 };
 
 
@@ -518,6 +521,8 @@ type FileFieldSelector = {
   readonly birthTime: InputMaybe<FieldSelectorEnum>;
   readonly birthtime: InputMaybe<FieldSelectorEnum>;
   readonly birthtimeMs: InputMaybe<FieldSelectorEnum>;
+  readonly blksize: InputMaybe<FieldSelectorEnum>;
+  readonly blocks: InputMaybe<FieldSelectorEnum>;
   readonly changeTime: InputMaybe<FieldSelectorEnum>;
   readonly childImageSharp: InputMaybe<ImageSharpFieldSelector>;
   readonly children: InputMaybe<NodeFieldSelector>;
@@ -547,6 +552,7 @@ type FileFieldSelector = {
   readonly size: InputMaybe<FieldSelectorEnum>;
   readonly sourceInstanceName: InputMaybe<FieldSelectorEnum>;
   readonly uid: InputMaybe<FieldSelectorEnum>;
+  readonly url: InputMaybe<FieldSelectorEnum>;
 };
 
 type FileFilterInput = {
@@ -558,6 +564,8 @@ type FileFilterInput = {
   readonly birthTime: InputMaybe<DateQueryOperatorInput>;
   readonly birthtime: InputMaybe<DateQueryOperatorInput>;
   readonly birthtimeMs: InputMaybe<FloatQueryOperatorInput>;
+  readonly blksize: InputMaybe<IntQueryOperatorInput>;
+  readonly blocks: InputMaybe<IntQueryOperatorInput>;
   readonly changeTime: InputMaybe<DateQueryOperatorInput>;
   readonly childImageSharp: InputMaybe<ImageSharpFilterInput>;
   readonly children: InputMaybe<NodeFilterListInput>;
@@ -587,6 +595,7 @@ type FileFilterInput = {
   readonly size: InputMaybe<IntQueryOperatorInput>;
   readonly sourceInstanceName: InputMaybe<StringQueryOperatorInput>;
   readonly uid: InputMaybe<IntQueryOperatorInput>;
+  readonly url: InputMaybe<StringQueryOperatorInput>;
 };
 
 type FileGroupConnection = {
@@ -639,6 +648,8 @@ type FileSortInput = {
   readonly birthTime: InputMaybe<SortOrderEnum>;
   readonly birthtime: InputMaybe<SortOrderEnum>;
   readonly birthtimeMs: InputMaybe<SortOrderEnum>;
+  readonly blksize: InputMaybe<SortOrderEnum>;
+  readonly blocks: InputMaybe<SortOrderEnum>;
   readonly changeTime: InputMaybe<SortOrderEnum>;
   readonly childImageSharp: InputMaybe<ImageSharpSortInput>;
   readonly children: InputMaybe<NodeSortInput>;
@@ -668,6 +679,7 @@ type FileSortInput = {
   readonly size: InputMaybe<SortOrderEnum>;
   readonly sourceInstanceName: InputMaybe<SortOrderEnum>;
   readonly uid: InputMaybe<SortOrderEnum>;
+  readonly url: InputMaybe<SortOrderEnum>;
 };
 
 type FloatQueryOperatorInput = {
@@ -1574,6 +1586,9 @@ type Query = {
   readonly allStrapiHomePageWhychooseuscontentTextnode: STRAPI_HOME_PAGE_WHYCHOOSEUSCONTENT_TEXTNODEConnection;
   readonly allStrapiMainMenu: STRAPI_MAIN_MENUConnection;
   readonly allStrapiMainMenuItemsJsonnode: STRAPI_MAIN_MENU_ITEMS_JSONNODEConnection;
+  readonly allStrapiMedia: STRAPI__MEDIAConnection;
+  readonly allStrapiService: STRAPI_SERVICEConnection;
+  readonly allStrapiServiceContentTextnode: STRAPI_SERVICE_CONTENT_TEXTNODEConnection;
   readonly directory: Maybe<Directory>;
   readonly file: Maybe<File>;
   readonly imageSharp: Maybe<ImageSharp>;
@@ -1592,6 +1607,9 @@ type Query = {
   readonly strapiHomePageWhychooseuscontentTextnode: Maybe<STRAPI_HOME_PAGE_WHYCHOOSEUSCONTENT_TEXTNODE>;
   readonly strapiMainMenu: Maybe<STRAPI_MAIN_MENU>;
   readonly strapiMainMenuItemsJsonnode: Maybe<STRAPI_MAIN_MENU_ITEMS_JSONNODE>;
+  readonly strapiMedia: Maybe<STRAPI__MEDIA>;
+  readonly strapiService: Maybe<STRAPI_SERVICE>;
+  readonly strapiServiceContentTextnode: Maybe<STRAPI_SERVICE_CONTENT_TEXTNODE>;
 };
 
 
@@ -1739,6 +1757,30 @@ type Query_allStrapiMainMenuItemsJsonnodeArgs = {
 };
 
 
+type Query_allStrapiMediaArgs = {
+  filter: InputMaybe<STRAPI__MEDIAFilterInput>;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<STRAPI__MEDIASortInput>>>;
+};
+
+
+type Query_allStrapiServiceArgs = {
+  filter: InputMaybe<STRAPI_SERVICEFilterInput>;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<STRAPI_SERVICESortInput>>>;
+};
+
+
+type Query_allStrapiServiceContentTextnodeArgs = {
+  filter: InputMaybe<STRAPI_SERVICE_CONTENT_TEXTNODEFilterInput>;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<STRAPI_SERVICE_CONTENT_TEXTNODESortInput>>>;
+};
+
+
 type Query_directoryArgs = {
   absolutePath: InputMaybe<StringQueryOperatorInput>;
   accessTime: InputMaybe<DateQueryOperatorInput>;
@@ -1787,6 +1829,8 @@ type Query_fileArgs = {
   birthTime: InputMaybe<DateQueryOperatorInput>;
   birthtime: InputMaybe<DateQueryOperatorInput>;
   birthtimeMs: InputMaybe<FloatQueryOperatorInput>;
+  blksize: InputMaybe<IntQueryOperatorInput>;
+  blocks: InputMaybe<IntQueryOperatorInput>;
   changeTime: InputMaybe<DateQueryOperatorInput>;
   childImageSharp: InputMaybe<ImageSharpFilterInput>;
   children: InputMaybe<NodeFilterListInput>;
@@ -1816,6 +1860,7 @@ type Query_fileArgs = {
   size: InputMaybe<IntQueryOperatorInput>;
   sourceInstanceName: InputMaybe<StringQueryOperatorInput>;
   uid: InputMaybe<IntQueryOperatorInput>;
+  url: InputMaybe<StringQueryOperatorInput>;
 };
 
 
@@ -2027,6 +2072,57 @@ type Query_strapiMainMenuItemsJsonnodeArgs = {
   internal: InputMaybe<InternalFilterInput>;
   major: InputMaybe<STRAPI_MAIN_MENU_ITEMS_JSONNODEMajorFilterListInput>;
   minor: InputMaybe<STRAPI_MAIN_MENU_ITEMS_JSONNODEMinorFilterListInput>;
+  parent: InputMaybe<NodeFilterInput>;
+};
+
+
+type Query_strapiMediaArgs = {
+  children: InputMaybe<NodeFilterListInput>;
+  createdAt: InputMaybe<DateQueryOperatorInput>;
+  ext: InputMaybe<StringQueryOperatorInput>;
+  formats: InputMaybe<STRAPI__MEDIAFormatsFilterInput>;
+  hash: InputMaybe<StringQueryOperatorInput>;
+  height: InputMaybe<IntQueryOperatorInput>;
+  id: InputMaybe<StringQueryOperatorInput>;
+  internal: InputMaybe<InternalFilterInput>;
+  localFile: InputMaybe<FileFilterInput>;
+  mime: InputMaybe<StringQueryOperatorInput>;
+  name: InputMaybe<StringQueryOperatorInput>;
+  parent: InputMaybe<NodeFilterInput>;
+  size: InputMaybe<FloatQueryOperatorInput>;
+  strapi_id: InputMaybe<IntQueryOperatorInput>;
+  updatedAt: InputMaybe<DateQueryOperatorInput>;
+  url: InputMaybe<StringQueryOperatorInput>;
+  width: InputMaybe<IntQueryOperatorInput>;
+};
+
+
+type Query_strapiServiceArgs = {
+  children: InputMaybe<NodeFilterListInput>;
+  content: InputMaybe<STRAPI_SERVICEContentFilterInput>;
+  createdAt: InputMaybe<DateQueryOperatorInput>;
+  excerpt: InputMaybe<StringQueryOperatorInput>;
+  featureOrder: InputMaybe<IntQueryOperatorInput>;
+  iconImage: InputMaybe<STRAPI__MEDIAFilterInput>;
+  id: InputMaybe<StringQueryOperatorInput>;
+  internal: InputMaybe<InternalFilterInput>;
+  isFeatured: InputMaybe<BooleanQueryOperatorInput>;
+  parent: InputMaybe<NodeFilterInput>;
+  publishedAt: InputMaybe<DateQueryOperatorInput>;
+  slug: InputMaybe<StringQueryOperatorInput>;
+  strapi_id: InputMaybe<IntQueryOperatorInput>;
+  title: InputMaybe<StringQueryOperatorInput>;
+  updatedAt: InputMaybe<DateQueryOperatorInput>;
+};
+
+
+type Query_strapiServiceContentTextnodeArgs = {
+  childMarkdownRemark: InputMaybe<MarkdownRemarkFilterInput>;
+  children: InputMaybe<NodeFilterListInput>;
+  childrenMarkdownRemark: InputMaybe<MarkdownRemarkFilterListInput>;
+  content: InputMaybe<StringQueryOperatorInput>;
+  id: InputMaybe<StringQueryOperatorInput>;
+  internal: InputMaybe<InternalFilterInput>;
   parent: InputMaybe<NodeFilterInput>;
 };
 
@@ -3410,6 +3506,598 @@ type STRAPI_MAIN_MENU_ITEMS_JSONNODESortInput = {
   readonly parent: InputMaybe<NodeSortInput>;
 };
 
+type STRAPI_SERVICE = Node & {
+  readonly children: ReadonlyArray<Node>;
+  readonly content: Maybe<STRAPI_SERVICEContent>;
+  readonly createdAt: Maybe<Scalars['Date']>;
+  readonly excerpt: Maybe<Scalars['String']>;
+  readonly featureOrder: Maybe<Scalars['Int']>;
+  readonly iconImage: Maybe<STRAPI__MEDIA>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly isFeatured: Maybe<Scalars['Boolean']>;
+  readonly parent: Maybe<Node>;
+  readonly publishedAt: Maybe<Scalars['Date']>;
+  readonly slug: Maybe<Scalars['String']>;
+  readonly strapi_id: Maybe<Scalars['Int']>;
+  readonly title: Maybe<Scalars['String']>;
+  readonly updatedAt: Maybe<Scalars['Date']>;
+};
+
+
+type STRAPI_SERVICE_createdAtArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+
+type STRAPI_SERVICE_publishedAtArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+
+type STRAPI_SERVICE_updatedAtArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+type STRAPI_SERVICEConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<STRAPI_SERVICEEdge>;
+  readonly group: ReadonlyArray<STRAPI_SERVICEGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<STRAPI_SERVICE>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type STRAPI_SERVICEConnection_distinctArgs = {
+  field: STRAPI_SERVICEFieldSelector;
+};
+
+
+type STRAPI_SERVICEConnection_groupArgs = {
+  field: STRAPI_SERVICEFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type STRAPI_SERVICEConnection_maxArgs = {
+  field: STRAPI_SERVICEFieldSelector;
+};
+
+
+type STRAPI_SERVICEConnection_minArgs = {
+  field: STRAPI_SERVICEFieldSelector;
+};
+
+
+type STRAPI_SERVICEConnection_sumArgs = {
+  field: STRAPI_SERVICEFieldSelector;
+};
+
+type STRAPI_SERVICEContent = {
+  readonly data: Maybe<STRAPI_SERVICE_CONTENT_TEXTNODE>;
+};
+
+type STRAPI_SERVICEContentFieldSelector = {
+  readonly data: InputMaybe<STRAPI_SERVICE_CONTENT_TEXTNODEFieldSelector>;
+};
+
+type STRAPI_SERVICEContentFilterInput = {
+  readonly data: InputMaybe<STRAPI_SERVICE_CONTENT_TEXTNODEFilterInput>;
+};
+
+type STRAPI_SERVICEContentSortInput = {
+  readonly data: InputMaybe<STRAPI_SERVICE_CONTENT_TEXTNODESortInput>;
+};
+
+type STRAPI_SERVICEEdge = {
+  readonly next: Maybe<STRAPI_SERVICE>;
+  readonly node: STRAPI_SERVICE;
+  readonly previous: Maybe<STRAPI_SERVICE>;
+};
+
+type STRAPI_SERVICEFieldSelector = {
+  readonly children: InputMaybe<NodeFieldSelector>;
+  readonly content: InputMaybe<STRAPI_SERVICEContentFieldSelector>;
+  readonly createdAt: InputMaybe<FieldSelectorEnum>;
+  readonly excerpt: InputMaybe<FieldSelectorEnum>;
+  readonly featureOrder: InputMaybe<FieldSelectorEnum>;
+  readonly iconImage: InputMaybe<STRAPI__MEDIAFieldSelector>;
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly internal: InputMaybe<InternalFieldSelector>;
+  readonly isFeatured: InputMaybe<FieldSelectorEnum>;
+  readonly parent: InputMaybe<NodeFieldSelector>;
+  readonly publishedAt: InputMaybe<FieldSelectorEnum>;
+  readonly slug: InputMaybe<FieldSelectorEnum>;
+  readonly strapi_id: InputMaybe<FieldSelectorEnum>;
+  readonly title: InputMaybe<FieldSelectorEnum>;
+  readonly updatedAt: InputMaybe<FieldSelectorEnum>;
+};
+
+type STRAPI_SERVICEFilterInput = {
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly content: InputMaybe<STRAPI_SERVICEContentFilterInput>;
+  readonly createdAt: InputMaybe<DateQueryOperatorInput>;
+  readonly excerpt: InputMaybe<StringQueryOperatorInput>;
+  readonly featureOrder: InputMaybe<IntQueryOperatorInput>;
+  readonly iconImage: InputMaybe<STRAPI__MEDIAFilterInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly isFeatured: InputMaybe<BooleanQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly publishedAt: InputMaybe<DateQueryOperatorInput>;
+  readonly slug: InputMaybe<StringQueryOperatorInput>;
+  readonly strapi_id: InputMaybe<IntQueryOperatorInput>;
+  readonly title: InputMaybe<StringQueryOperatorInput>;
+  readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
+};
+
+type STRAPI_SERVICEGroupConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<STRAPI_SERVICEEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<STRAPI_SERVICEGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<STRAPI_SERVICE>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type STRAPI_SERVICEGroupConnection_distinctArgs = {
+  field: STRAPI_SERVICEFieldSelector;
+};
+
+
+type STRAPI_SERVICEGroupConnection_groupArgs = {
+  field: STRAPI_SERVICEFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type STRAPI_SERVICEGroupConnection_maxArgs = {
+  field: STRAPI_SERVICEFieldSelector;
+};
+
+
+type STRAPI_SERVICEGroupConnection_minArgs = {
+  field: STRAPI_SERVICEFieldSelector;
+};
+
+
+type STRAPI_SERVICEGroupConnection_sumArgs = {
+  field: STRAPI_SERVICEFieldSelector;
+};
+
+type STRAPI_SERVICESortInput = {
+  readonly children: InputMaybe<NodeSortInput>;
+  readonly content: InputMaybe<STRAPI_SERVICEContentSortInput>;
+  readonly createdAt: InputMaybe<SortOrderEnum>;
+  readonly excerpt: InputMaybe<SortOrderEnum>;
+  readonly featureOrder: InputMaybe<SortOrderEnum>;
+  readonly iconImage: InputMaybe<STRAPI__MEDIASortInput>;
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly internal: InputMaybe<InternalSortInput>;
+  readonly isFeatured: InputMaybe<SortOrderEnum>;
+  readonly parent: InputMaybe<NodeSortInput>;
+  readonly publishedAt: InputMaybe<SortOrderEnum>;
+  readonly slug: InputMaybe<SortOrderEnum>;
+  readonly strapi_id: InputMaybe<SortOrderEnum>;
+  readonly title: InputMaybe<SortOrderEnum>;
+  readonly updatedAt: InputMaybe<SortOrderEnum>;
+};
+
+type STRAPI_SERVICE_CONTENT_TEXTNODE = Node & {
+  /** Returns the first child node of type MarkdownRemark or null if there are no children of given type on this node */
+  readonly childMarkdownRemark: Maybe<MarkdownRemark>;
+  readonly children: ReadonlyArray<Node>;
+  /** Returns all children nodes filtered by type MarkdownRemark */
+  readonly childrenMarkdownRemark: Maybe<ReadonlyArray<Maybe<MarkdownRemark>>>;
+  readonly content: Maybe<Scalars['String']>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly parent: Maybe<Node>;
+};
+
+type STRAPI_SERVICE_CONTENT_TEXTNODEConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<STRAPI_SERVICE_CONTENT_TEXTNODEEdge>;
+  readonly group: ReadonlyArray<STRAPI_SERVICE_CONTENT_TEXTNODEGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<STRAPI_SERVICE_CONTENT_TEXTNODE>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type STRAPI_SERVICE_CONTENT_TEXTNODEConnection_distinctArgs = {
+  field: STRAPI_SERVICE_CONTENT_TEXTNODEFieldSelector;
+};
+
+
+type STRAPI_SERVICE_CONTENT_TEXTNODEConnection_groupArgs = {
+  field: STRAPI_SERVICE_CONTENT_TEXTNODEFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type STRAPI_SERVICE_CONTENT_TEXTNODEConnection_maxArgs = {
+  field: STRAPI_SERVICE_CONTENT_TEXTNODEFieldSelector;
+};
+
+
+type STRAPI_SERVICE_CONTENT_TEXTNODEConnection_minArgs = {
+  field: STRAPI_SERVICE_CONTENT_TEXTNODEFieldSelector;
+};
+
+
+type STRAPI_SERVICE_CONTENT_TEXTNODEConnection_sumArgs = {
+  field: STRAPI_SERVICE_CONTENT_TEXTNODEFieldSelector;
+};
+
+type STRAPI_SERVICE_CONTENT_TEXTNODEEdge = {
+  readonly next: Maybe<STRAPI_SERVICE_CONTENT_TEXTNODE>;
+  readonly node: STRAPI_SERVICE_CONTENT_TEXTNODE;
+  readonly previous: Maybe<STRAPI_SERVICE_CONTENT_TEXTNODE>;
+};
+
+type STRAPI_SERVICE_CONTENT_TEXTNODEFieldSelector = {
+  readonly childMarkdownRemark: InputMaybe<MarkdownRemarkFieldSelector>;
+  readonly children: InputMaybe<NodeFieldSelector>;
+  readonly childrenMarkdownRemark: InputMaybe<MarkdownRemarkFieldSelector>;
+  readonly content: InputMaybe<FieldSelectorEnum>;
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly internal: InputMaybe<InternalFieldSelector>;
+  readonly parent: InputMaybe<NodeFieldSelector>;
+};
+
+type STRAPI_SERVICE_CONTENT_TEXTNODEFilterInput = {
+  readonly childMarkdownRemark: InputMaybe<MarkdownRemarkFilterInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly childrenMarkdownRemark: InputMaybe<MarkdownRemarkFilterListInput>;
+  readonly content: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+};
+
+type STRAPI_SERVICE_CONTENT_TEXTNODEGroupConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<STRAPI_SERVICE_CONTENT_TEXTNODEEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<STRAPI_SERVICE_CONTENT_TEXTNODEGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<STRAPI_SERVICE_CONTENT_TEXTNODE>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type STRAPI_SERVICE_CONTENT_TEXTNODEGroupConnection_distinctArgs = {
+  field: STRAPI_SERVICE_CONTENT_TEXTNODEFieldSelector;
+};
+
+
+type STRAPI_SERVICE_CONTENT_TEXTNODEGroupConnection_groupArgs = {
+  field: STRAPI_SERVICE_CONTENT_TEXTNODEFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type STRAPI_SERVICE_CONTENT_TEXTNODEGroupConnection_maxArgs = {
+  field: STRAPI_SERVICE_CONTENT_TEXTNODEFieldSelector;
+};
+
+
+type STRAPI_SERVICE_CONTENT_TEXTNODEGroupConnection_minArgs = {
+  field: STRAPI_SERVICE_CONTENT_TEXTNODEFieldSelector;
+};
+
+
+type STRAPI_SERVICE_CONTENT_TEXTNODEGroupConnection_sumArgs = {
+  field: STRAPI_SERVICE_CONTENT_TEXTNODEFieldSelector;
+};
+
+type STRAPI_SERVICE_CONTENT_TEXTNODESortInput = {
+  readonly childMarkdownRemark: InputMaybe<MarkdownRemarkSortInput>;
+  readonly children: InputMaybe<NodeSortInput>;
+  readonly childrenMarkdownRemark: InputMaybe<MarkdownRemarkSortInput>;
+  readonly content: InputMaybe<SortOrderEnum>;
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly internal: InputMaybe<InternalSortInput>;
+  readonly parent: InputMaybe<NodeSortInput>;
+};
+
+type STRAPI__MEDIA = Node & {
+  readonly children: ReadonlyArray<Node>;
+  readonly createdAt: Maybe<Scalars['Date']>;
+  readonly ext: Maybe<Scalars['String']>;
+  readonly formats: Maybe<STRAPI__MEDIAFormats>;
+  readonly hash: Maybe<Scalars['String']>;
+  readonly height: Maybe<Scalars['Int']>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly localFile: Maybe<File>;
+  readonly mime: Maybe<Scalars['String']>;
+  readonly name: Maybe<Scalars['String']>;
+  readonly parent: Maybe<Node>;
+  readonly size: Maybe<Scalars['Float']>;
+  readonly strapi_id: Maybe<Scalars['Int']>;
+  readonly updatedAt: Maybe<Scalars['Date']>;
+  readonly url: Maybe<Scalars['String']>;
+  readonly width: Maybe<Scalars['Int']>;
+};
+
+
+type STRAPI__MEDIA_createdAtArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+
+type STRAPI__MEDIA_updatedAtArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+type STRAPI__MEDIAConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<STRAPI__MEDIAEdge>;
+  readonly group: ReadonlyArray<STRAPI__MEDIAGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<STRAPI__MEDIA>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type STRAPI__MEDIAConnection_distinctArgs = {
+  field: STRAPI__MEDIAFieldSelector;
+};
+
+
+type STRAPI__MEDIAConnection_groupArgs = {
+  field: STRAPI__MEDIAFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type STRAPI__MEDIAConnection_maxArgs = {
+  field: STRAPI__MEDIAFieldSelector;
+};
+
+
+type STRAPI__MEDIAConnection_minArgs = {
+  field: STRAPI__MEDIAFieldSelector;
+};
+
+
+type STRAPI__MEDIAConnection_sumArgs = {
+  field: STRAPI__MEDIAFieldSelector;
+};
+
+type STRAPI__MEDIAEdge = {
+  readonly next: Maybe<STRAPI__MEDIA>;
+  readonly node: STRAPI__MEDIA;
+  readonly previous: Maybe<STRAPI__MEDIA>;
+};
+
+type STRAPI__MEDIAFieldSelector = {
+  readonly children: InputMaybe<NodeFieldSelector>;
+  readonly createdAt: InputMaybe<FieldSelectorEnum>;
+  readonly ext: InputMaybe<FieldSelectorEnum>;
+  readonly formats: InputMaybe<STRAPI__MEDIAFormatsFieldSelector>;
+  readonly hash: InputMaybe<FieldSelectorEnum>;
+  readonly height: InputMaybe<FieldSelectorEnum>;
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly internal: InputMaybe<InternalFieldSelector>;
+  readonly localFile: InputMaybe<FileFieldSelector>;
+  readonly mime: InputMaybe<FieldSelectorEnum>;
+  readonly name: InputMaybe<FieldSelectorEnum>;
+  readonly parent: InputMaybe<NodeFieldSelector>;
+  readonly size: InputMaybe<FieldSelectorEnum>;
+  readonly strapi_id: InputMaybe<FieldSelectorEnum>;
+  readonly updatedAt: InputMaybe<FieldSelectorEnum>;
+  readonly url: InputMaybe<FieldSelectorEnum>;
+  readonly width: InputMaybe<FieldSelectorEnum>;
+};
+
+type STRAPI__MEDIAFilterInput = {
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly createdAt: InputMaybe<DateQueryOperatorInput>;
+  readonly ext: InputMaybe<StringQueryOperatorInput>;
+  readonly formats: InputMaybe<STRAPI__MEDIAFormatsFilterInput>;
+  readonly hash: InputMaybe<StringQueryOperatorInput>;
+  readonly height: InputMaybe<IntQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly localFile: InputMaybe<FileFilterInput>;
+  readonly mime: InputMaybe<StringQueryOperatorInput>;
+  readonly name: InputMaybe<StringQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly size: InputMaybe<FloatQueryOperatorInput>;
+  readonly strapi_id: InputMaybe<IntQueryOperatorInput>;
+  readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
+  readonly url: InputMaybe<StringQueryOperatorInput>;
+  readonly width: InputMaybe<IntQueryOperatorInput>;
+};
+
+type STRAPI__MEDIAFormats = {
+  readonly thumbnail: Maybe<STRAPI__MEDIAFormatsThumbnail>;
+};
+
+type STRAPI__MEDIAFormatsFieldSelector = {
+  readonly thumbnail: InputMaybe<STRAPI__MEDIAFormatsThumbnailFieldSelector>;
+};
+
+type STRAPI__MEDIAFormatsFilterInput = {
+  readonly thumbnail: InputMaybe<STRAPI__MEDIAFormatsThumbnailFilterInput>;
+};
+
+type STRAPI__MEDIAFormatsSortInput = {
+  readonly thumbnail: InputMaybe<STRAPI__MEDIAFormatsThumbnailSortInput>;
+};
+
+type STRAPI__MEDIAFormatsThumbnail = {
+  readonly ext: Maybe<Scalars['String']>;
+  readonly hash: Maybe<Scalars['String']>;
+  readonly height: Maybe<Scalars['Int']>;
+  readonly mime: Maybe<Scalars['String']>;
+  readonly name: Maybe<Scalars['String']>;
+  readonly provider_metadata: Maybe<STRAPI__MEDIAFormatsThumbnailProvider_metadata>;
+  readonly size: Maybe<Scalars['Float']>;
+  readonly url: Maybe<Scalars['String']>;
+  readonly width: Maybe<Scalars['Int']>;
+};
+
+type STRAPI__MEDIAFormatsThumbnailFieldSelector = {
+  readonly ext: InputMaybe<FieldSelectorEnum>;
+  readonly hash: InputMaybe<FieldSelectorEnum>;
+  readonly height: InputMaybe<FieldSelectorEnum>;
+  readonly mime: InputMaybe<FieldSelectorEnum>;
+  readonly name: InputMaybe<FieldSelectorEnum>;
+  readonly provider_metadata: InputMaybe<STRAPI__MEDIAFormatsThumbnailProvider_metadataFieldSelector>;
+  readonly size: InputMaybe<FieldSelectorEnum>;
+  readonly url: InputMaybe<FieldSelectorEnum>;
+  readonly width: InputMaybe<FieldSelectorEnum>;
+};
+
+type STRAPI__MEDIAFormatsThumbnailFilterInput = {
+  readonly ext: InputMaybe<StringQueryOperatorInput>;
+  readonly hash: InputMaybe<StringQueryOperatorInput>;
+  readonly height: InputMaybe<IntQueryOperatorInput>;
+  readonly mime: InputMaybe<StringQueryOperatorInput>;
+  readonly name: InputMaybe<StringQueryOperatorInput>;
+  readonly provider_metadata: InputMaybe<STRAPI__MEDIAFormatsThumbnailProvider_metadataFilterInput>;
+  readonly size: InputMaybe<FloatQueryOperatorInput>;
+  readonly url: InputMaybe<StringQueryOperatorInput>;
+  readonly width: InputMaybe<IntQueryOperatorInput>;
+};
+
+type STRAPI__MEDIAFormatsThumbnailProvider_metadata = {
+  readonly public_id: Maybe<Scalars['String']>;
+  readonly resource_type: Maybe<Scalars['String']>;
+};
+
+type STRAPI__MEDIAFormatsThumbnailProvider_metadataFieldSelector = {
+  readonly public_id: InputMaybe<FieldSelectorEnum>;
+  readonly resource_type: InputMaybe<FieldSelectorEnum>;
+};
+
+type STRAPI__MEDIAFormatsThumbnailProvider_metadataFilterInput = {
+  readonly public_id: InputMaybe<StringQueryOperatorInput>;
+  readonly resource_type: InputMaybe<StringQueryOperatorInput>;
+};
+
+type STRAPI__MEDIAFormatsThumbnailProvider_metadataSortInput = {
+  readonly public_id: InputMaybe<SortOrderEnum>;
+  readonly resource_type: InputMaybe<SortOrderEnum>;
+};
+
+type STRAPI__MEDIAFormatsThumbnailSortInput = {
+  readonly ext: InputMaybe<SortOrderEnum>;
+  readonly hash: InputMaybe<SortOrderEnum>;
+  readonly height: InputMaybe<SortOrderEnum>;
+  readonly mime: InputMaybe<SortOrderEnum>;
+  readonly name: InputMaybe<SortOrderEnum>;
+  readonly provider_metadata: InputMaybe<STRAPI__MEDIAFormatsThumbnailProvider_metadataSortInput>;
+  readonly size: InputMaybe<SortOrderEnum>;
+  readonly url: InputMaybe<SortOrderEnum>;
+  readonly width: InputMaybe<SortOrderEnum>;
+};
+
+type STRAPI__MEDIAGroupConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<STRAPI__MEDIAEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<STRAPI__MEDIAGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<STRAPI__MEDIA>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type STRAPI__MEDIAGroupConnection_distinctArgs = {
+  field: STRAPI__MEDIAFieldSelector;
+};
+
+
+type STRAPI__MEDIAGroupConnection_groupArgs = {
+  field: STRAPI__MEDIAFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type STRAPI__MEDIAGroupConnection_maxArgs = {
+  field: STRAPI__MEDIAFieldSelector;
+};
+
+
+type STRAPI__MEDIAGroupConnection_minArgs = {
+  field: STRAPI__MEDIAFieldSelector;
+};
+
+
+type STRAPI__MEDIAGroupConnection_sumArgs = {
+  field: STRAPI__MEDIAFieldSelector;
+};
+
+type STRAPI__MEDIASortInput = {
+  readonly children: InputMaybe<NodeSortInput>;
+  readonly createdAt: InputMaybe<SortOrderEnum>;
+  readonly ext: InputMaybe<SortOrderEnum>;
+  readonly formats: InputMaybe<STRAPI__MEDIAFormatsSortInput>;
+  readonly hash: InputMaybe<SortOrderEnum>;
+  readonly height: InputMaybe<SortOrderEnum>;
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly internal: InputMaybe<InternalSortInput>;
+  readonly localFile: InputMaybe<FileSortInput>;
+  readonly mime: InputMaybe<SortOrderEnum>;
+  readonly name: InputMaybe<SortOrderEnum>;
+  readonly parent: InputMaybe<NodeSortInput>;
+  readonly size: InputMaybe<SortOrderEnum>;
+  readonly strapi_id: InputMaybe<SortOrderEnum>;
+  readonly updatedAt: InputMaybe<SortOrderEnum>;
+  readonly url: InputMaybe<SortOrderEnum>;
+  readonly width: InputMaybe<SortOrderEnum>;
+};
+
 type Site = Node & {
   readonly buildTime: Maybe<Scalars['Date']>;
   readonly children: ReadonlyArray<Node>;
@@ -4205,7 +4893,7 @@ type WebPOptions = {
 type CoreLayoutQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type CoreLayoutQuery = { readonly site: { readonly siteMetadata: { readonly siteUrl: string | null, readonly title: string | null } | null } | null, readonly strapiMainMenu: { readonly major: ReadonlyArray<{ readonly label: string | null, readonly name: string | null, readonly path: string | null } | null> | null, readonly minor: ReadonlyArray<{ readonly label: string | null, readonly name: string | null, readonly path: string | null } | null> | null } | null };
+type CoreLayoutQuery = { readonly site: { readonly siteMetadata: { readonly siteUrl: string | null, readonly title: string | null } | null } | null, readonly strapiMainMenu: { readonly major: ReadonlyArray<{ readonly label: string | null, readonly name: string | null, readonly to: string | null } | null> | null, readonly minor: ReadonlyArray<{ readonly label: string | null, readonly name: string | null, readonly to: string | null } | null> | null } | null };
 
 type GatsbyImageSharpFixedFragment = { readonly base64: string | null, readonly width: number, readonly height: number, readonly src: string, readonly srcSet: string };
 
@@ -4236,7 +4924,7 @@ type GatsbyImageSharpFluidLimitPresentationSizeFragment = { readonly maxHeight: 
 type IndexPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type IndexPageQuery = { readonly strapiHomePage: { readonly childMarkdownRemark: { readonly html: string | null, readonly frontmatter: { readonly title: string | null } | null } | null } | null };
+type IndexPageQuery = { readonly strapiHomePageWelcome: { readonly childMarkdownRemark: { readonly html: string | null, readonly frontmatter: { readonly title: string | null } | null } | null } | null, readonly strapiHomePageServices: { readonly childMarkdownRemark: { readonly html: string | null, readonly frontmatter: { readonly title: string | null } | null } | null } | null, readonly allStrapiService: { readonly nodes: ReadonlyArray<{ readonly slug: string | null, readonly title: string | null, readonly excerpt: string | null, readonly iconImage: { readonly localFile: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } | null }> }, readonly strapiHomePageAboutUs: { readonly childMarkdownRemark: { readonly html: string | null, readonly frontmatter: { readonly title: string | null } | null } | null } | null };
 
 
 }
