@@ -6,7 +6,7 @@ import { useStore } from '#hooks/use-store.hook';
 import { BaseNavLink } from '#components/base/base-nav-link.component';
 
 import type { ComponentProps } from 'react';
-import type { NavLink } from '#components/base/base-nav-link.component';
+import type { NavLink } from '#models/base.model';
 
 type Props = ComponentProps<typeof motion.nav> & {
   majorLinks: NavLink[];
