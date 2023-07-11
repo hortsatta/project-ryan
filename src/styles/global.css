@@ -8,7 +8,6 @@
     @apply bg-backdrop;
     background-image: url('/images/bg-grid.png');
     background-repeat: repeat;
-    background-attachment: fixed;
   }
 
   body * {
@@ -25,6 +24,7 @@
   h5,
   h6 {
     @apply text-white;
+    @apply text-3xl;
     @apply font-heading;
     font-weight: 600;
   }
