@@ -23,6 +23,7 @@
     "gatsby-plugin-alias-imports": "^1.0.5",
     "gatsby-plugin-image": "^3.11.0",
     "gatsby-plugin-sharp": "^5.11.0",
+    "gatsby-plugin-smoothscroll": "^1.2.0",
     "gatsby-source-filesystem": "^5.11.0",
     "gatsby-source-strapi": "^3.3.0",
     "gatsby-transformer-remark": "^6.11.0",

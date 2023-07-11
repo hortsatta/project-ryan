@@ -7531,6 +7531,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"gatsby-plugin-smoothscroll@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "gatsby-plugin-smoothscroll@npm:1.2.0"
+  dependencies:
+    smoothscroll-polyfill: ^0.4.4
+  checksum: 6418916d3aced187e578096eb70bbd19e2ea19933df8c787a41ea4a820da4951c7fceeba3dece3b01462505c775f59445d44697caed1c3790f9ff85ae80dde9a
+  languageName: node
+  linkType: hard
+
 "gatsby-plugin-typescript@npm:^5.11.0":
   version: 5.11.0
   resolution: "gatsby-plugin-typescript@npm:5.11.0"
@@ -12055,6 +12064,7 @@ __metadata:
     gatsby-plugin-image: ^3.11.0
     gatsby-plugin-postcss: ^6.11.0
     gatsby-plugin-sharp: ^5.11.0
+    gatsby-plugin-smoothscroll: ^1.2.0
     gatsby-source-filesystem: ^5.11.0
     gatsby-source-strapi: ^3.3.0
     gatsby-transformer-remark: ^6.11.0
@@ -13264,6 +13274,13 @@ __metadata:
   version: 4.2.0
   resolution: "smart-buffer@npm:4.2.0"
   checksum: b5167a7142c1da704c0e3af85c402002b597081dd9575031a90b4f229ca5678e9a36e8a374f1814c8156a725d17008ae3bde63b92f9cfd132526379e580bec8b
+  languageName: node
+  linkType: hard
+
+"smoothscroll-polyfill@npm:^0.4.4":
+  version: 0.4.4
+  resolution: "smoothscroll-polyfill@npm:0.4.4"
+  checksum: b99ff7d91689d563ec69cb1d29713b332a24c88ac3dc4ef9ef9fbe4137305336e67253211067c5f786478dbdabd2aa6c2033709d4d8feca327b09eca8d5a0e7b
   languageName: node
   linkType: hard
 
