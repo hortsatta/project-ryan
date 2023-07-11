@@ -1,8 +1,10 @@
-import { memo, useEffect, useRef } from 'react';
+import { memo, useCallback, useEffect, useRef } from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
+import scrollTo from 'gatsby-plugin-smoothscroll';
 import cx from 'classix';
 
 import { useStore } from '#hooks/use-store.hook';
+import { BaseButtonLink } from '#components/base/base-button-link.component';
 import { BaseButton } from '#components/base/base-button.component';
 import { BaseIcon } from '#components/base/base-icon.component';
 
@@ -23,7 +25,7 @@ export const HomeWelcomeSection = memo(function ({
 }: Props) {
   const scrollY = useStore((state) => state.scrollY);
   const setIsBeyondWelcome = useStore((state) => state.setIsBeyondWelcome);
-  const btnConnectRef = useRef<HTMLButtonElement>(null);
+  const btnConnectRef = useRef<HTMLAnchorElement>(null);
 
   // For header nav's minor links
   useEffect(() => {
@@ -35,6 +37,10 @@ export const HomeWelcomeSection = memo(function ({
     const limit = top + height + 200;
     setIsBeyondWelcome(scrollY > limit);
   }, [scrollY]);
+
+  const gotoOurServices = useCallback(() => {
+    scrollTo('#our-services');
+  }, []);
 
   return (
     <section
@@ -61,10 +67,18 @@ export const HomeWelcomeSection = memo(function ({
                 dangerouslySetInnerHTML={{ __html: contentHtml as string }}
               />
               <div className='flex items-center gap-4 pt-16'>
-                <BaseButton ref={btnConnectRef} variant='primary'>
+                <BaseButtonLink
+                  ref={btnConnectRef}
+                  to='/connect'
+                  variant='primary'
+                >
                   Connect With Us
-                </BaseButton>
-                <BaseButton className='px-[26px] h-[69px]' variant='ghost'>
+                </BaseButtonLink>
+                <BaseButton
+                  className='py-3 px-[26px] h-[69px]'
+                  variant='ghost'
+                  onClick={gotoOurServices}
+                >
                   <span className='text-default'>What We Offer</span>
                   <BaseIcon name='arrow-square-down' size={22} />
                 </BaseButton>
@@ -72,7 +86,7 @@ export const HomeWelcomeSection = memo(function ({
             </div>
             <div className='relative'>
               {/* Welcome window */}
-              <div className='relative -mt-5 drop-shadow-2xl backdrop-blur-sm'>
+              <div className='relative -mt-5 drop-shadow-2xl'>
                 <StaticImage
                   src='../../assets/images/welcome-window.png'
                   alt='welcome window'
