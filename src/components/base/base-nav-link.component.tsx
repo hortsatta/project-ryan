@@ -3,12 +3,7 @@ import { Link } from 'gatsby';
 import { cx } from 'classix';
 
 import type { GatsbyLinkProps } from 'gatsby';
-
-export type NavLink = {
-  name: string;
-  to: string;
-  label: string;
-};
+import type { NavLink } from '#models/base.model';
 
 type Props = Omit<GatsbyLinkProps<Record<string, unknown>>, 'ref'> &
   NavLink & {

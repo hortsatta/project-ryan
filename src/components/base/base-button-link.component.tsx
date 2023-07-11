@@ -1,23 +1,24 @@
 import { forwardRef, memo } from 'react';
+import { Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 import { cx } from 'classix';
 
 import type { ComponentProps } from 'react';
 import type { ButtonVariant } from '#models/base.model';
 
-type Props = ComponentProps<'button'> & {
+type Props = ComponentProps<typeof Link> & {
   variant?: ButtonVariant;
 };
 
-export const BaseButton = memo(
-  forwardRef<HTMLButtonElement, Props>(function (
+export const BaseButtonLink = memo(
+  forwardRef<HTMLAnchorElement, Props>(function (
     { className, variant, children, ...moreProps }: Props,
     ref,
   ) {
     if (variant === 'primary') {
       return (
-        <button
-          ref={ref}
+        <Link
+          ref={ref as any}
           className={cx(
             className,
             'flex items-center h-[69px] uppercase drop-shadow-[0_12px_20px_rgba(0,132,255,0.4)] hover:brightness-110\
@@ -49,15 +50,15 @@ export const BaseButton = memo(
             src='../../assets/images/btn-primary-right.png'
             alt=''
           />
-        </button>
+        </Link>
       );
     }
 
     return (
-      <button
-        ref={ref}
+      <Link
+        ref={ref as any}
         className={cx(
-          'py-3 px-3 inline-flex justify-center items-center gap-2 rounded-md border border-transparent uppercase text-default\
+          'py-3 px-6 inline-flex justify-center items-center gap-2 rounded-md border border-transparent uppercase text-default\
           tracking-[3.5px] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all',
           (!variant || variant === 'solid') &&
             'bg-primary hover:bg-blue-500 dark:focus:ring-offset-gray-800',
@@ -68,7 +69,7 @@ export const BaseButton = memo(
         {...moreProps}
       >
         {children}
-      </button>
+      </Link>
     );
   }),
 );
