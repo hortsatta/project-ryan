@@ -1577,6 +1577,7 @@ type Query = {
   readonly allSiteFunction: SiteFunctionConnection;
   readonly allSitePage: SitePageConnection;
   readonly allSitePlugin: SitePluginConnection;
+  readonly allStrapiComponentListWhyChooseUsList: STRAPI__COMPONENT_LIST_WHY_CHOOSE_US_LISTConnection;
   readonly allStrapiHomePage: STRAPI_HOME_PAGEConnection;
   readonly allStrapiHomePageAboutuscontentTextnode: STRAPI_HOME_PAGE_ABOUTUSCONTENT_TEXTNODEConnection;
   readonly allStrapiHomePageCalltoactioncontentTextnode: STRAPI_HOME_PAGE_CALLTOACTIONCONTENT_TEXTNODEConnection;
@@ -1598,6 +1599,7 @@ type Query = {
   readonly siteFunction: Maybe<SiteFunction>;
   readonly sitePage: Maybe<SitePage>;
   readonly sitePlugin: Maybe<SitePlugin>;
+  readonly strapiComponentListWhyChooseUsList: Maybe<STRAPI__COMPONENT_LIST_WHY_CHOOSE_US_LIST>;
   readonly strapiHomePage: Maybe<STRAPI_HOME_PAGE>;
   readonly strapiHomePageAboutuscontentTextnode: Maybe<STRAPI_HOME_PAGE_ABOUTUSCONTENT_TEXTNODE>;
   readonly strapiHomePageCalltoactioncontentTextnode: Maybe<STRAPI_HOME_PAGE_CALLTOACTIONCONTENT_TEXTNODE>;
@@ -1682,6 +1684,14 @@ type Query_allSitePluginArgs = {
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
   sort: InputMaybe<ReadonlyArray<InputMaybe<SitePluginSortInput>>>;
+};
+
+
+type Query_allStrapiComponentListWhyChooseUsListArgs = {
+  filter: InputMaybe<STRAPI__COMPONENT_LIST_WHY_CHOOSE_US_LISTFilterInput>;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<STRAPI__COMPONENT_LIST_WHY_CHOOSE_US_LISTSortInput>>>;
 };
 
 
@@ -1968,6 +1978,17 @@ type Query_sitePluginArgs = {
 };
 
 
+type Query_strapiComponentListWhyChooseUsListArgs = {
+  children: InputMaybe<NodeFilterListInput>;
+  content: InputMaybe<StringQueryOperatorInput>;
+  id: InputMaybe<StringQueryOperatorInput>;
+  internal: InputMaybe<InternalFilterInput>;
+  parent: InputMaybe<NodeFilterInput>;
+  strapi_id: InputMaybe<IntQueryOperatorInput>;
+  title: InputMaybe<StringQueryOperatorInput>;
+};
+
+
 type Query_strapiHomePageArgs = {
   aboutUsContent: InputMaybe<STRAPI_HOME_PAGEAboutUsContentFilterInput>;
   callToActionContent: InputMaybe<STRAPI_HOME_PAGECallToActionContentFilterInput>;
@@ -1983,6 +2004,7 @@ type Query_strapiHomePageArgs = {
   updatedAt: InputMaybe<DateQueryOperatorInput>;
   welcomeContent: InputMaybe<STRAPI_HOME_PAGEWelcomeContentFilterInput>;
   whyChooseUsContent: InputMaybe<STRAPI_HOME_PAGEWhyChooseUsContentFilterInput>;
+  whyChooseUsList: InputMaybe<STRAPI__COMPONENT_LIST_WHY_CHOOSE_US_LISTFilterListInput>;
 };
 
 
@@ -2141,6 +2163,7 @@ type STRAPI_HOME_PAGE = Node & {
   readonly updatedAt: Maybe<Scalars['Date']>;
   readonly welcomeContent: Maybe<STRAPI_HOME_PAGEWelcomeContent>;
   readonly whyChooseUsContent: Maybe<STRAPI_HOME_PAGEWhyChooseUsContent>;
+  readonly whyChooseUsList: Maybe<ReadonlyArray<Maybe<STRAPI__COMPONENT_LIST_WHY_CHOOSE_US_LIST>>>;
 };
 
 
@@ -2259,6 +2282,7 @@ type STRAPI_HOME_PAGEFieldSelector = {
   readonly updatedAt: InputMaybe<FieldSelectorEnum>;
   readonly welcomeContent: InputMaybe<STRAPI_HOME_PAGEWelcomeContentFieldSelector>;
   readonly whyChooseUsContent: InputMaybe<STRAPI_HOME_PAGEWhyChooseUsContentFieldSelector>;
+  readonly whyChooseUsList: InputMaybe<STRAPI__COMPONENT_LIST_WHY_CHOOSE_US_LISTFieldSelector>;
 };
 
 type STRAPI_HOME_PAGEFilterInput = {
@@ -2276,6 +2300,7 @@ type STRAPI_HOME_PAGEFilterInput = {
   readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
   readonly welcomeContent: InputMaybe<STRAPI_HOME_PAGEWelcomeContentFilterInput>;
   readonly whyChooseUsContent: InputMaybe<STRAPI_HOME_PAGEWhyChooseUsContentFilterInput>;
+  readonly whyChooseUsList: InputMaybe<STRAPI__COMPONENT_LIST_WHY_CHOOSE_US_LISTFilterListInput>;
 };
 
 type STRAPI_HOME_PAGEGroupConnection = {
@@ -2350,6 +2375,7 @@ type STRAPI_HOME_PAGESortInput = {
   readonly updatedAt: InputMaybe<SortOrderEnum>;
   readonly welcomeContent: InputMaybe<STRAPI_HOME_PAGEWelcomeContentSortInput>;
   readonly whyChooseUsContent: InputMaybe<STRAPI_HOME_PAGEWhyChooseUsContentSortInput>;
+  readonly whyChooseUsList: InputMaybe<STRAPI__COMPONENT_LIST_WHY_CHOOSE_US_LISTSortInput>;
 };
 
 type STRAPI_HOME_PAGETechnologiesContent = {
@@ -3832,6 +3858,136 @@ type STRAPI_SERVICE_CONTENT_TEXTNODESortInput = {
   readonly parent: InputMaybe<NodeSortInput>;
 };
 
+type STRAPI__COMPONENT_LIST_WHY_CHOOSE_US_LIST = Node & {
+  readonly children: ReadonlyArray<Node>;
+  readonly content: Maybe<Scalars['String']>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly parent: Maybe<Node>;
+  readonly strapi_id: Maybe<Scalars['Int']>;
+  readonly title: Maybe<Scalars['String']>;
+};
+
+type STRAPI__COMPONENT_LIST_WHY_CHOOSE_US_LISTConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<STRAPI__COMPONENT_LIST_WHY_CHOOSE_US_LISTEdge>;
+  readonly group: ReadonlyArray<STRAPI__COMPONENT_LIST_WHY_CHOOSE_US_LISTGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<STRAPI__COMPONENT_LIST_WHY_CHOOSE_US_LIST>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type STRAPI__COMPONENT_LIST_WHY_CHOOSE_US_LISTConnection_distinctArgs = {
+  field: STRAPI__COMPONENT_LIST_WHY_CHOOSE_US_LISTFieldSelector;
+};
+
+
+type STRAPI__COMPONENT_LIST_WHY_CHOOSE_US_LISTConnection_groupArgs = {
+  field: STRAPI__COMPONENT_LIST_WHY_CHOOSE_US_LISTFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type STRAPI__COMPONENT_LIST_WHY_CHOOSE_US_LISTConnection_maxArgs = {
+  field: STRAPI__COMPONENT_LIST_WHY_CHOOSE_US_LISTFieldSelector;
+};
+
+
+type STRAPI__COMPONENT_LIST_WHY_CHOOSE_US_LISTConnection_minArgs = {
+  field: STRAPI__COMPONENT_LIST_WHY_CHOOSE_US_LISTFieldSelector;
+};
+
+
+type STRAPI__COMPONENT_LIST_WHY_CHOOSE_US_LISTConnection_sumArgs = {
+  field: STRAPI__COMPONENT_LIST_WHY_CHOOSE_US_LISTFieldSelector;
+};
+
+type STRAPI__COMPONENT_LIST_WHY_CHOOSE_US_LISTEdge = {
+  readonly next: Maybe<STRAPI__COMPONENT_LIST_WHY_CHOOSE_US_LIST>;
+  readonly node: STRAPI__COMPONENT_LIST_WHY_CHOOSE_US_LIST;
+  readonly previous: Maybe<STRAPI__COMPONENT_LIST_WHY_CHOOSE_US_LIST>;
+};
+
+type STRAPI__COMPONENT_LIST_WHY_CHOOSE_US_LISTFieldSelector = {
+  readonly children: InputMaybe<NodeFieldSelector>;
+  readonly content: InputMaybe<FieldSelectorEnum>;
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly internal: InputMaybe<InternalFieldSelector>;
+  readonly parent: InputMaybe<NodeFieldSelector>;
+  readonly strapi_id: InputMaybe<FieldSelectorEnum>;
+  readonly title: InputMaybe<FieldSelectorEnum>;
+};
+
+type STRAPI__COMPONENT_LIST_WHY_CHOOSE_US_LISTFilterInput = {
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly content: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly strapi_id: InputMaybe<IntQueryOperatorInput>;
+  readonly title: InputMaybe<StringQueryOperatorInput>;
+};
+
+type STRAPI__COMPONENT_LIST_WHY_CHOOSE_US_LISTFilterListInput = {
+  readonly elemMatch: InputMaybe<STRAPI__COMPONENT_LIST_WHY_CHOOSE_US_LISTFilterInput>;
+};
+
+type STRAPI__COMPONENT_LIST_WHY_CHOOSE_US_LISTGroupConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<STRAPI__COMPONENT_LIST_WHY_CHOOSE_US_LISTEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<STRAPI__COMPONENT_LIST_WHY_CHOOSE_US_LISTGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<STRAPI__COMPONENT_LIST_WHY_CHOOSE_US_LIST>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type STRAPI__COMPONENT_LIST_WHY_CHOOSE_US_LISTGroupConnection_distinctArgs = {
+  field: STRAPI__COMPONENT_LIST_WHY_CHOOSE_US_LISTFieldSelector;
+};
+
+
+type STRAPI__COMPONENT_LIST_WHY_CHOOSE_US_LISTGroupConnection_groupArgs = {
+  field: STRAPI__COMPONENT_LIST_WHY_CHOOSE_US_LISTFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type STRAPI__COMPONENT_LIST_WHY_CHOOSE_US_LISTGroupConnection_maxArgs = {
+  field: STRAPI__COMPONENT_LIST_WHY_CHOOSE_US_LISTFieldSelector;
+};
+
+
+type STRAPI__COMPONENT_LIST_WHY_CHOOSE_US_LISTGroupConnection_minArgs = {
+  field: STRAPI__COMPONENT_LIST_WHY_CHOOSE_US_LISTFieldSelector;
+};
+
+
+type STRAPI__COMPONENT_LIST_WHY_CHOOSE_US_LISTGroupConnection_sumArgs = {
+  field: STRAPI__COMPONENT_LIST_WHY_CHOOSE_US_LISTFieldSelector;
+};
+
+type STRAPI__COMPONENT_LIST_WHY_CHOOSE_US_LISTSortInput = {
+  readonly children: InputMaybe<NodeSortInput>;
+  readonly content: InputMaybe<SortOrderEnum>;
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly internal: InputMaybe<InternalSortInput>;
+  readonly parent: InputMaybe<NodeSortInput>;
+  readonly strapi_id: InputMaybe<SortOrderEnum>;
+  readonly title: InputMaybe<SortOrderEnum>;
+};
+
 type STRAPI__MEDIA = Node & {
   readonly children: ReadonlyArray<Node>;
   readonly createdAt: Maybe<Scalars['Date']>;
@@ -4924,7 +5080,9 @@ type GatsbyImageSharpFluidLimitPresentationSizeFragment = { readonly maxHeight: 
 type IndexPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type IndexPageQuery = { readonly strapiHomePageWelcome: { readonly childMarkdownRemark: { readonly html: string | null, readonly frontmatter: { readonly title: string | null } | null } | null } | null, readonly strapiHomePageServices: { readonly childMarkdownRemark: { readonly html: string | null, readonly frontmatter: { readonly title: string | null } | null } | null } | null, readonly allStrapiService: { readonly nodes: ReadonlyArray<{ readonly slug: string | null, readonly title: string | null, readonly excerpt: string | null, readonly iconImage: { readonly localFile: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } | null }> }, readonly strapiHomePageAboutUs: { readonly childMarkdownRemark: { readonly html: string | null, readonly frontmatter: { readonly title: string | null } | null } | null } | null };
+type IndexPageQuery = { readonly strapiHomePageWelcome: { readonly childMarkdownRemark: { readonly html: string | null, readonly frontmatter: { readonly title: string | null } | null } | null } | null, readonly strapiHomePageServices: { readonly childMarkdownRemark: { readonly html: string | null, readonly frontmatter: { readonly title: string | null } | null } | null } | null, readonly allStrapiService: { readonly nodes: ReadonlyArray<{ readonly slug: string | null, readonly title: string | null, readonly excerpt: string | null, readonly iconImage: { readonly localFile: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } | null }> }, readonly strapiHomePageAboutUs: { readonly childMarkdownRemark: { readonly html: string | null, readonly frontmatter: { readonly title: string | null } | null } | null } | null, readonly strapiHomePageTechnologies: { readonly childMarkdownRemark: { readonly html: string | null, readonly frontmatter: { readonly title: string | null } | null } | null } | null, readonly strapiHomePageWhyChooseUs: { readonly childMarkdownRemark: { readonly html: string | null, readonly frontmatter: { readonly title: string | null } | null } | null } | null, readonly strapiHomePage: { readonly whyChooseUsList: ReadonlyArray<{ readonly title: string | null, readonly content: string | null } | null> | null } | null };
+
+type markdownRemarkFragment = { readonly html: string | null, readonly frontmatter: { readonly title: string | null } | null };
 
 
 }
