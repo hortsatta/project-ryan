@@ -1,6 +1,7 @@
 import { memo, useCallback, useEffect, useRef } from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
 import scrollTo from 'gatsby-plugin-smoothscroll';
+import { useInView } from 'framer-motion';
 import cx from 'classix';
 
 import { useStore } from '#hooks/use-store.hook';
@@ -16,6 +17,7 @@ type Props = ComponentProps<'section'> & {
 };
 
 const styles = { height: window.innerHeight };
+const inViewOptions = { margin: '-133px 0px 0px 0px' };
 
 export const HomeWelcomeSection = memo(function ({
   className,
@@ -23,20 +25,14 @@ export const HomeWelcomeSection = memo(function ({
   contentHtml,
   ...moreProps
 }: Props) {
-  const scrollY = useStore((state) => state.scrollY);
   const setIsBeyondWelcome = useStore((state) => state.setIsBeyondWelcome);
   const btnConnectRef = useRef<HTMLAnchorElement>(null);
+  const isBtnConnectInView = useInView(btnConnectRef, inViewOptions);
 
   // For header nav's minor links
   useEffect(() => {
-    if (!btnConnectRef.current) {
-      return;
-    }
-
-    const { top, height } = btnConnectRef.current.getBoundingClientRect();
-    const limit = top + height + 200;
-    setIsBeyondWelcome(scrollY > limit);
-  }, [scrollY]);
+    setIsBeyondWelcome(!isBtnConnectInView);
+  }, [isBtnConnectInView]);
 
   const gotoOurServices = useCallback(() => {
     scrollTo('#our-services');

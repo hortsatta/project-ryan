@@ -1,7 +1,6 @@
-import { memo, useCallback, useEffect, useState } from 'react';
+import { memo, useState } from 'react';
+import { useMotionValueEvent, useScroll } from 'framer-motion';
 import { cx } from 'classix';
-
-import { useStore } from '#hooks/use-store.hook';
 
 import type { ComponentProps } from 'react';
 
@@ -12,26 +11,12 @@ export const CoreHeader = memo(function ({
   children,
   ...moreProps
 }: ComponentProps<'header'>) {
-  const scrollY = useStore((state) => state.scrollY);
-  const setScrollY = useStore((state) => state.setScrollY);
+  const { scrollY } = useScroll();
   const [isScrollTop, setIsScrollTop] = useState(true);
 
-  const handleScroll = useCallback(() => {
-    setScrollY(window.scrollY);
-  }, []);
-
-  // Add event listener to scroll
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll, { passive: true });
-
-    () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
-  useEffect(() => {
-    setIsScrollTop(scrollY <= SCROLL_Y_THRESHOLD);
-  }, [scrollY]);
+  useMotionValueEvent(scrollY, 'change', (latest) => {
+    setIsScrollTop(latest <= SCROLL_Y_THRESHOLD);
+  });
 
   return (
     <header
