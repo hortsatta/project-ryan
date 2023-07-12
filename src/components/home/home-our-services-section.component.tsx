@@ -8,7 +8,7 @@ import { BaseIcon } from '#components/base/base-icon.component';
 import { ServiceCard } from '#components/service/service-card.component';
 import {
   sectionMotionAnimation,
-  contentMotionVariants,
+  contentMotionVariants as cMotionVariants,
 } from './section-animation.config';
 
 import type { ComponentProps } from 'react';
@@ -18,6 +18,14 @@ type Props = ComponentProps<typeof motion.section> & {
   services: Service[];
   title: string;
   contentHtml?: string | TrustedHTML;
+};
+
+export const contentMotionVariants = {
+  ...cMotionVariants,
+  visible: {
+    ...cMotionVariants.visible,
+    transition: { duration: 0.3, delay: 0.1, ease: 'linear' },
+  },
 };
 
 const lineMotionVariants = {
