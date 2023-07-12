@@ -4,6 +4,7 @@ import { graphql } from 'gatsby';
 import { HomeWelcomeSection } from '#components/home/home-welcome-section.component';
 import { HomeOurServicesSection } from '#components/home/home-our-services-section.component';
 import { HomeAboutUsSection } from '#components/home/home-about-us-section.component';
+import { HomeTechnologiesSection } from '#components/home/home-technologies-section.component';
 
 import type { HeadFC, PageProps } from 'gatsby';
 
@@ -13,6 +14,7 @@ type Props = PageProps & {
     strapiHomePageServices: Queries.Query['strapiHomePageServicescontentTextnode'];
     allStrapiService: Queries.Query['allStrapiService'];
     strapiHomePageAboutUs: Queries.Query['strapiHomePageAboutuscontentTextnode'];
+    strapiHomePageTechnologies: Queries.Query['strapiHomePageTechnologiescontentTextnode'];
   };
 };
 
@@ -63,6 +65,16 @@ function IndexPage({
     [strapiHomePageAboutUs],
   );
 
+  const technologiesTitle = useMemo(
+    () => strapiHomePageAboutUs?.childMarkdownRemark?.frontmatter?.title || '',
+    [strapiHomePageAboutUs],
+  );
+
+  const technologiesContentHtml = useMemo(
+    () => strapiHomePageAboutUs?.childMarkdownRemark?.html || '',
+    [strapiHomePageAboutUs],
+  );
+
   return (
     <div className='pb-16'>
       <HomeWelcomeSection
@@ -80,6 +92,11 @@ function IndexPage({
         id='about-us'
         title={aboutUsTitle}
         contentHtml={aboutUsContentHtml}
+      />
+      <HomeTechnologiesSection
+        id='technologies'
+        title={technologiesTitle}
+        contentHtml={technologiesContentHtml}
       />
     </div>
   );
@@ -130,6 +147,14 @@ export const query = graphql`
       }
     }
     strapiHomePageAboutUs: strapiHomePageAboutuscontentTextnode {
+      childMarkdownRemark {
+        frontmatter {
+          title
+        }
+        html
+      }
+    }
+    strapiHomePageTechnologies: strapiHomePageTechnologiescontentTextnode {
       childMarkdownRemark {
         frontmatter {
           title
