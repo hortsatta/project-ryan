@@ -1,5 +1,10 @@
 import { memo, useMemo } from 'react';
-import { ArrowSquareDown, ArrowSquareRight } from '@phosphor-icons/react';
+import {
+  ArrowSquareDown,
+  ArrowSquareRight,
+  MinusSquare,
+  PlusSquare,
+} from '@phosphor-icons/react';
 
 import type { Icon, IconProps } from '@phosphor-icons/react';
 import type { IconName } from '#models/base.model';
@@ -15,6 +20,10 @@ export const BaseIcon = memo(function ({ name, ...moreProps }: Props) {
         return ArrowSquareDown;
       case 'arrow-square-right':
         return ArrowSquareRight;
+      case 'minus-square':
+        return MinusSquare;
+      case 'plus-square':
+        return PlusSquare;
     }
   }, [name]);
 
