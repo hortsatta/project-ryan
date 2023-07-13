@@ -2,30 +2,13 @@ import { memo } from 'react';
 import { motion } from 'framer-motion';
 import { cx } from 'classix';
 
+import {
+  lineMotionVariants,
+  pathMotionVariants,
+  circleMotionVariants,
+} from './section-animation.config';
+
 import type { ComponentProps } from 'react';
-
-const hidden = { pathLength: 0, transition: { duration: 0.1 } };
-
-const lineMotionVariants = {
-  hidden,
-  visible: { pathLength: 1, transition: { duration: 0.5, ease: 'easeOut' } },
-};
-
-const pathMotionVariants = {
-  hidden,
-  visible: {
-    pathLength: 1,
-    transition: { duration: 0.7, delay: 0.2, ease: 'easeOut' },
-  },
-};
-
-const circleMotionVariants = {
-  hidden: { scale: 0, transition: { duration: 0.1 } },
-  visible: {
-    scale: 1,
-    transition: { type: 'spring', stiffness: 100, delay: 0.8 },
-  },
-};
 
 export const HomeSectionBranchVisual = memo(function ({
   className,

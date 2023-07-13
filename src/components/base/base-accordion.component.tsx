@@ -41,7 +41,7 @@ export const BaseAccordion = memo(function ({
           </button>
           <div
             id={`accordion-item-${index}`}
-            className='hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300'
+            className='hs-accordion-content hidden ml-2 pl-3 border-l-2 border-primary-100 w-full overflow-hidden transition-[height] duration-300'
             aria-labelledby={`accordion-item-${index}`}
           >
             {content}

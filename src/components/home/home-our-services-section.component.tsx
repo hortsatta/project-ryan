@@ -20,7 +20,7 @@ type Props = ComponentProps<typeof motion.section> & {
   contentHtml?: string | TrustedHTML;
 };
 
-export const contentMotionVariants = {
+const contentMotionVariants = {
   ...cMotionVariants,
   visible: {
     ...cMotionVariants.visible,
@@ -76,7 +76,7 @@ export const HomeOurServicesSection = memo(function ({
     >
       <LineVisual />
       <motion.div
-        className='rounded-2xl overflow-hidden drop-shadow-2xl shadow-[inset_0px_0px_8px_2px_rgba(255,255,255,0.2)]'
+        className='rounded-2xl overflow-hidden drop-shadow-2xl shadow-[inset_0px_0px_12px_1px_rgba(255,255,255,0.2)]'
         variants={contentMotionVariants}
       >
         {/* Services */}

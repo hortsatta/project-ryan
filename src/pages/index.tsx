@@ -5,25 +5,34 @@ import { HomeWelcomeSection } from '#components/home/home-welcome-section.compon
 import { HomeOurServicesSection } from '#components/home/home-our-services-section.component';
 import { HomeAboutUsSection } from '#components/home/home-about-us-section.component';
 import { HomeTechnologiesSection } from '#components/home/home-technologies-section.component';
+import { HomeWhyChooseUsSection } from '#components/home/home-why-choose-us-section.component';
+import { HomeCallToActionSection } from '#components/home/home-call-to-action-section.component';
 
 import type { HeadFC, PageProps } from 'gatsby';
+import type { AccordionItem } from '#models/base.model';
 
 type Props = PageProps & {
   data: {
+    strapiHomePage: Queries.Query['strapiHomePage'];
     strapiHomePageWelcome: Queries.Query['strapiHomePageWelcomecontentTextnode'];
     strapiHomePageServices: Queries.Query['strapiHomePageServicescontentTextnode'];
     allStrapiService: Queries.Query['allStrapiService'];
     strapiHomePageAboutUs: Queries.Query['strapiHomePageAboutuscontentTextnode'];
     strapiHomePageTechnologies: Queries.Query['strapiHomePageTechnologiescontentTextnode'];
+    strapiHomePageWhyChooseUs: Queries.Query['strapiHomePageWhychooseuscontentTextnode'];
+    strapiHomePageCallToAction: Queries.Query['strapiHomePageCalltoactioncontentTextnode'];
   };
 };
 
 function IndexPage({
   data: {
+    strapiHomePage,
+    allStrapiService,
     strapiHomePageWelcome,
     strapiHomePageServices,
-    allStrapiService,
     strapiHomePageAboutUs,
+    strapiHomePageWhyChooseUs,
+    strapiHomePageCallToAction,
   },
 }: Props) {
   const welcomeTitle = useMemo(
@@ -75,6 +84,37 @@ function IndexPage({
     [strapiHomePageAboutUs],
   );
 
+  const whyChooseUsTitle = useMemo(
+    () =>
+      strapiHomePageWhyChooseUs?.childMarkdownRemark?.frontmatter?.title || '',
+    [strapiHomePageWhyChooseUs],
+  );
+
+  const whyChooseUsContentHtml = useMemo(
+    () => strapiHomePageWhyChooseUs?.childMarkdownRemark?.html || '',
+    [strapiHomePageWhyChooseUs],
+  );
+
+  const whyChooseUsList = useMemo(
+    () =>
+      strapiHomePage?.whyChooseUsList?.map(({ title, content }: any) => ({
+        title,
+        content: <p>{content}</p>,
+      })) as AccordionItem[],
+    [strapiHomePage],
+  );
+
+  const callToActionTitle = useMemo(
+    () =>
+      strapiHomePageCallToAction?.childMarkdownRemark?.frontmatter?.title || '',
+    [strapiHomePageCallToAction],
+  );
+
+  const callToActionContentHtml = useMemo(
+    () => strapiHomePageCallToAction?.childMarkdownRemark?.html || '',
+    [strapiHomePageCallToAction],
+  );
+
   return (
     <div className='pb-16'>
       <HomeWelcomeSection
@@ -98,6 +138,17 @@ function IndexPage({
         title={technologiesTitle}
         contentHtml={technologiesContentHtml}
       />
+      <HomeWhyChooseUsSection
+        id='why-choose-us'
+        whyItems={whyChooseUsList}
+        title={whyChooseUsTitle}
+        contentHtml={whyChooseUsContentHtml}
+      />
+      <HomeCallToActionSection
+        id='call-to-action'
+        title={callToActionTitle}
+        contentHtml={callToActionContentHtml}
+      />
     </div>
   );
 }
@@ -105,21 +156,17 @@ function IndexPage({
 export default IndexPage;
 
 export const query = graphql`
-  query IndexPage {
-    strapiHomePageWelcome: strapiHomePageWelcomecontentTextnode {
-      childMarkdownRemark {
-        frontmatter {
-          title
-        }
-        html
-      }
+  fragment markdownRemark on MarkdownRemark {
+    frontmatter {
+      title
     }
-    strapiHomePageServices: strapiHomePageServicescontentTextnode {
-      childMarkdownRemark {
-        frontmatter {
-          title
-        }
-        html
+    html
+  }
+  query IndexPage {
+    strapiHomePage {
+      whyChooseUsList {
+        title
+        content
       }
     }
     allStrapiService(
@@ -146,20 +193,34 @@ export const query = graphql`
         }
       }
     }
+    strapiHomePageWelcome: strapiHomePageWelcomecontentTextnode {
+      childMarkdownRemark {
+        ...markdownRemark
+      }
+    }
+    strapiHomePageServices: strapiHomePageServicescontentTextnode {
+      childMarkdownRemark {
+        ...markdownRemark
+      }
+    }
     strapiHomePageAboutUs: strapiHomePageAboutuscontentTextnode {
       childMarkdownRemark {
-        frontmatter {
-          title
-        }
-        html
+        ...markdownRemark
       }
     }
     strapiHomePageTechnologies: strapiHomePageTechnologiescontentTextnode {
       childMarkdownRemark {
-        frontmatter {
-          title
-        }
-        html
+        ...markdownRemark
+      }
+    }
+    strapiHomePageWhyChooseUs: strapiHomePageWhychooseuscontentTextnode {
+      childMarkdownRemark {
+        ...markdownRemark
+      }
+    }
+    strapiHomePageCallToAction: strapiHomePageCalltoactioncontentTextnode {
+      childMarkdownRemark {
+        ...markdownRemark
       }
     }
   }
