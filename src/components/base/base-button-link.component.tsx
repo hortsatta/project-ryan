@@ -21,8 +21,8 @@ export const BaseButtonLink = memo(
           ref={ref as any}
           className={cx(
             className,
-            'flex items-center h-[69px] uppercase drop-shadow-[0_12px_20px_rgba(0,132,255,0.4)] hover:brightness-110\
-            hover:drop-shadow-[0_12px_20px_rgba(0,132,255,0.6)] transition-all',
+            'flex items-center h-[69px] uppercase drop-shadow-[0_12px_20px_rgba(0,132,255,0.4)] hover:no-underline\
+              hover:brightness-110 hover:drop-shadow-[0_12px_20px_rgba(0,132,255,0.6)] transition-all',
           )}
           {...moreProps}
         >
@@ -59,7 +59,7 @@ export const BaseButtonLink = memo(
         ref={ref as any}
         className={cx(
           'py-3 px-6 inline-flex justify-center items-center gap-2 rounded-md border border-transparent uppercase text-default\
-          tracking-[3.5px] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all',
+            hover:no-underline tracking-[3.5px] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all',
           (!variant || variant === 'solid') &&
             'bg-primary hover:bg-blue-500 dark:focus:ring-offset-gray-800',
           variant === 'ghost' && 'hover:bg-primary',

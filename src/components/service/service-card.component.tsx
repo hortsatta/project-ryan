@@ -36,7 +36,7 @@ export const ServiceCard = memo(function ({
         {image && (
           <GatsbyImage className='relative z-10' image={image} alt={title} />
         )}
-        <div className='absolute top-0 left-1/2 -translate-x-1/2'>
+        <div className='absolute top-0 left-1/2 -translate-x-1/2 opacity-60'>
           <StaticImage
             src='../../assets/images/services-icon-glow.png'
             alt=''
@@ -44,7 +44,7 @@ export const ServiceCard = memo(function ({
         </div>
       </div>
       <div className='flex flex-col justify-start items-center pt-9 w-full h-[212px]'>
-        <Link to={link}>
+        <Link to={link} className='hover:no-underline'>
           <h4 className='mb-6 max-w-[170px] w-full text-lg text-center leading-[23px] hover:text-primary-100 transition-colors'>
             {title}
           </h4>

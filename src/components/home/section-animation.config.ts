@@ -6,7 +6,7 @@ export const sectionMotionAnimation = {
   transition: { duration: 0.2, ease: 'linear' },
   initial: 'hidden',
   whileInView: 'visible',
-  viewport: { margin: '0px 0px -200px 0px' },
+  viewport: { margin: '0px 0px -250px 0px' },
 };
 
 export const contentMotionVariants = {

@@ -28,7 +28,10 @@ export const HomeWhyChooseUsSection = memo(function ({
 }: Props) {
   return (
     <motion.section
-      className={cx('relative px-4 pt-[400px] mx-auto max-w-main', className)}
+      className={cx(
+        'relative px-4 pt-[400px] mx-auto max-w-main z-10',
+        className,
+      )}
       {...moreProps}
       {...sectionMotionAnimation}
     >

@@ -121,6 +121,8 @@ export const HomeWelcomeSection = memo(function ({
                     <StaticImage
                       src='../../assets/images/beam-end.png'
                       alt='beam end'
+                      width={120}
+                      height={119}
                     />
                   </div>
                 </div>
@@ -133,6 +135,8 @@ export const HomeWelcomeSection = memo(function ({
               className='w-full h-full'
               src='../../assets/images/glow.png'
               alt=''
+              width={810}
+              height={760}
               objectFit='cover'
             />
           </div>

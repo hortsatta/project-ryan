@@ -29,14 +29,14 @@ const lineMotionVariants = {
 
 const LineVisual = memo(function () {
   return (
-    <div className='absolute top-0 right-[77px] z-10 w-[122px] h-[1127px]'>
+    <div className='absolute top-0 right-[77px] z-10 w-[122px] h-[1100px]'>
       <div className='absolute top-0 -right-[4px] flex flex-col justify-between h-full'>
         <div className='w-4 h-10 bg-gradient-to-b from-backdrop to-transparent' />
         <div className='w-4 h-10 bg-gradient-to-t from-backdrop to-transparent' />
       </div>
       <svg
         xmlns='http://www.w3.org/2000/svg'
-        viewBox='0 0 122 1127'
+        viewBox='0 0 122 1100'
         className='overflow-visible'
       >
         <motion.g>
@@ -45,7 +45,7 @@ const LineVisual = memo(function () {
             x1={118.54}
             x2={118.54}
             y1={0}
-            y2={1127}
+            y2={1100}
             fill='none'
             strokeMiterlimit={10}
             strokeWidth={6}
@@ -82,7 +82,7 @@ export const HomeCallToActionSection = memo(function ({
   return (
     <motion.section
       className={cx(
-        'relative px-4 pt-[380px] pb-[400px] mx-auto max-w-main',
+        'relative px-4 pt-[380px] pb-[200px] mx-auto max-w-main',
         className,
       )}
       {...moreProps}
@@ -92,8 +92,8 @@ export const HomeCallToActionSection = memo(function ({
       <div className='relative mx-auto w-fit z-0'>
         {/* Content */}
         <motion.div
-          className='relative flex items-center justify-between p-7 gap-[40px] w-fit bg-accent/30 rounded-2xl z-10
-            overflow-hidden drop-shadow-2x1 shadow-[inset_0px_0px_12px_1px_rgba(255,255,255,0.2)]'
+          className='relative flex items-center justify-between p-7 gap-[40px] w-fit bg-accent/30 rounded-2xl
+            z-10 drop-shadow-2x1 shadow-[inset_0px_0px_12px_1px_rgba(255,255,255,0.2)]'
           variants={contentMotionVariants}
         >
           <div>
@@ -113,6 +113,9 @@ export const HomeCallToActionSection = memo(function ({
             </BaseButtonLink>
           </div>
         </motion.div>
+        <div className='absolute -top-[50px] left-1/2 -translate-x-1/2'>
+          <StaticImage src='../../assets/images/glow.png' alt='' />
+        </div>
       </div>
     </motion.section>
   );

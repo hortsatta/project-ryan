@@ -36,8 +36,15 @@ const lineMotionVariants = {
 const LineVisual = memo(function () {
   return (
     <div className='absolute top-0 right-[72px] flex justify-center w-4 h-[212px]'>
-      <div className='absolute top-0 flex flex-col justify-between w-full h-full'>
-        <div className='w-4 h-10 bg-gradient-to-b from-backdrop to-transparent' />
+      <div className='absolute top-0 flex flex-col justify-end w-full h-full'>
+        <div className='absolute left-[-52px] top-[-65px] w-[120px] h-[119px] animate-beam-end'>
+          <StaticImage
+            src='../../assets/images/beam-end.png'
+            alt='beam end'
+            width={120}
+            height={119}
+          />
+        </div>
         <div className='w-4 h-10 bg-gradient-to-t from-backdrop to-transparent' />
       </div>
       <svg
@@ -70,7 +77,10 @@ export const HomeOurServicesSection = memo(function ({
 }: Props) {
   return (
     <motion.section
-      className={cx('relative pt-[212px] px-4 mx-auto max-w-main', className)}
+      className={cx(
+        'relative pt-[212px] px-4 mx-auto max-w-main z-20 overflow-hidden',
+        className,
+      )}
       {...moreProps}
       {...sectionMotionAnimation}
     >
@@ -103,11 +113,14 @@ export const HomeOurServicesSection = memo(function ({
               <BaseIcon name='arrow-square-right' size={22} />
             </BaseButtonLink>
           </div>
-          <div className='absolute bottom-0 left-1/2 -translate-x-1/2'>
+          <div className='absolute bottom-0 left-1/2 -translate-x-1/2 opacity-70'>
             <StaticImage src='../../assets/images/services-glow.png' alt='' />
           </div>
         </div>
       </motion.div>
+      <div className='absolute top-2/3 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-50'>
+        <StaticImage src='../../assets/images/glow.png' alt='' />
+      </div>
     </motion.section>
   );
 });

@@ -116,7 +116,7 @@ function IndexPage({
   );
 
   return (
-    <div className='pb-16'>
+    <div>
       <HomeWelcomeSection
         id='welcome'
         title={welcomeTitle}

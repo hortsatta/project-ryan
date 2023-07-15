@@ -19,7 +19,7 @@ export const BaseNavLink = memo(function ({
 }: Props) {
   return (
     <Link
-      className='group relative inline-block'
+      className='group relative inline-block hover:no-underline'
       activeClassName='active'
       key={name}
       to={to}
