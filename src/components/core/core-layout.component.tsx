@@ -1,10 +1,13 @@
+import { useMemo } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 
 import { CoreHeader } from './core-header.component';
+import { CoreLogo } from './core-logo.component';
 import { CoreNav } from './core-nav.component';
+import { CoreFooter } from './core-footer.component';
+import { CoreFooterLinks } from './core-footer-links.component';
 
 import type { PageProps } from 'gatsby';
-import { useMemo } from 'react';
 
 const query = graphql`
   query CoreLayout {
@@ -40,14 +43,17 @@ export function CoreLayout({ location, children }: PageProps) {
   return (
     <>
       <CoreHeader>
+        <CoreLogo isHome={isHome} />
         <CoreNav
           majorLinks={majorLinks}
           minorLinks={minorLinks}
           isHome={isHome}
         />
       </CoreHeader>
-      {/* <CoreHeader siteTitle={siteTitle} modules={modules} /> */}
-      <main>{children}</main>
+      <main className='min-h-screen'>{children}</main>
+      <CoreFooter>
+        <CoreFooterLinks links={majorLinks} />
+      </CoreFooter>
     </>
   );
 }

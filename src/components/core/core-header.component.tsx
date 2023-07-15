@@ -29,7 +29,6 @@ export const CoreHeader = memo(function ({
       {...moreProps}
     >
       <div className='mx-auto flex items-center justify-between max-w-main h-full overflow-hidden'>
-        <div />
         {children}
       </div>
     </header>
