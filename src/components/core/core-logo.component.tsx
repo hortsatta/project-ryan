@@ -24,6 +24,7 @@ export const CoreLogo = memo(function ({
             src='../../assets/images/logo.svg'
             alt='logo'
             width={130}
+            loading='eager'
           />
         </div>
         {isHome && (

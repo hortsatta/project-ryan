@@ -31,6 +31,7 @@ export const BaseButtonLink = memo(
             src='../../assets/images/btn-primary-left.png'
             alt=''
             placeholder='none'
+            loading='eager'
           />
           <div className='relative px-5 h-full flex justify-center items-center bg-gradient-to-r from-primary to-primary-200'>
             <div className='relative text-default tracking-[3.5px] z-10'>
@@ -42,6 +43,7 @@ export const BaseButtonLink = memo(
                 src='../../assets/images/btn-primary-glow.png'
                 alt=''
                 objectFit='fill'
+                loading='eager'
               />
             </div>
           </div>
@@ -49,6 +51,7 @@ export const BaseButtonLink = memo(
             imgClassName='!transition-none'
             src='../../assets/images/btn-primary-right.png'
             alt=''
+            loading='eager'
           />
         </Link>
       );

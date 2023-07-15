@@ -86,6 +86,7 @@ export const HomeWelcomeSection = memo(function ({
                 <StaticImage
                   src='../../assets/images/welcome-window.png'
                   alt='welcome window'
+                  loading='eager'
                 />
                 <div className='absolute bottom-[26px] left-[53px] w-4 h-5 bg-secondary rounded-sm animate-cursor-blink' />
               </div>
@@ -96,6 +97,7 @@ export const HomeWelcomeSection = memo(function ({
                     className='relative'
                     src='../../assets/images/jetpack-human.png'
                     alt='human with jetpack'
+                    loading='eager'
                   />
                   {/* Boost */}
                   <div className='absolute bottom-[89px] right-[24px]'>
@@ -103,6 +105,7 @@ export const HomeWelcomeSection = memo(function ({
                       className='animate-boost'
                       src='../../assets/images/jetpack-boost.png'
                       alt='jetpack boost'
+                      loading='eager'
                     />
                   </div>
                   {/* Boost ring */}
@@ -111,6 +114,7 @@ export const HomeWelcomeSection = memo(function ({
                       className='animate-boost-ring'
                       src='../../assets/images/jetpack-boost-ring.png'
                       alt='jetpack boost ring'
+                      loading='eager'
                     />
                   </div>
                 </div>
@@ -123,6 +127,7 @@ export const HomeWelcomeSection = memo(function ({
                       alt='beam end'
                       width={120}
                       height={119}
+                      loading='eager'
                     />
                   </div>
                 </div>
