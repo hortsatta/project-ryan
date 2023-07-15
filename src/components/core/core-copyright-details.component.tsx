@@ -33,7 +33,10 @@ export const CoreCopyrightDetails = memo(function ({
       <div>
         <ul className='flex justify-center'>
           {links.map(({ name, to, label }) => (
-            <li className='after:content-["•"] last:after:content-none text-white/70'>
+            <li
+              key={name}
+              className='after:content-["•"] last:after:content-none text-white/70'
+            >
               <Link key={name} to={to} className='px-2 text-sm text-white/70'>
                 {label}
               </Link>

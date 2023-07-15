@@ -86,7 +86,7 @@ export const HomeOurServicesSection = memo(function ({
     >
       <LineVisual />
       <motion.div
-        className='rounded-2xl overflow-hidden drop-shadow-2xl shadow-[inset_0px_0px_12px_1px_rgba(255,255,255,0.2)]'
+        className='relative rounded-2xl overflow-hidden drop-shadow-2xl shadow-[inset_0px_0px_12px_1px_rgba(255,255,255,0.2)] z-10'
         variants={contentMotionVariants}
       >
         {/* Services */}

@@ -3,6 +3,8 @@ import { Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 import { cx } from 'classix';
 
+import { BaseSiteLogo } from '#components/base/base-site-logo.component';
+
 import type { ComponentProps } from 'react';
 import type { NavLink } from '#models/base.model';
 
@@ -25,15 +27,7 @@ export const CoreFooterLinks = memo(function ({
       )}
       {...moreProps}
     >
-      <div className='pb-6'>
-        <Link to={homeTo}>
-          <StaticImage
-            src='../../assets/images/logo.svg'
-            alt='logo'
-            width={225}
-          />
-        </Link>
-      </div>
+      <BaseSiteLogo className='pb-6' />
       <div className='pb-8 flex items-center'>
         <ul className='flex'>
           {links.map(({ label, to, name }) => (

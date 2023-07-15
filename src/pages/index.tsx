@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 import { graphql } from 'gatsby';
 
+import { BaseScene } from '#components/base/base-scene.component';
 import { HomeWelcomeSection } from '#components/home/home-welcome-section.component';
 import { HomeOurServicesSection } from '#components/home/home-our-services-section.component';
 import { HomeAboutUsSection } from '#components/home/home-about-us-section.component';
@@ -116,7 +117,7 @@ function IndexPage({
   );
 
   return (
-    <div>
+    <BaseScene className='!p-0 !mx-0 !max-w-none'>
       <HomeWelcomeSection
         id='welcome'
         title={welcomeTitle}
@@ -149,7 +150,7 @@ function IndexPage({
         title={callToActionTitle}
         contentHtml={callToActionContentHtml}
       />
-    </div>
+    </BaseScene>
   );
 }
 
@@ -225,5 +226,3 @@ export const query = graphql`
     }
   }
 `;
-
-export const Head: HeadFC = () => <title>Home Page</title>;

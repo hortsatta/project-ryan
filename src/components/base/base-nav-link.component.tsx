@@ -26,13 +26,16 @@ export const BaseNavLink = memo(function ({
       {...moreProps}
     >
       <div className='pl-[7px] pr-[10.5px] absolute top-1/2 -translate-y-1/2 flex justify-between w-full h-[22px] opacity-0 group-hover-[.active]:opacity-100 group-[.active]:opacity-100 transition-opacity'>
-        <svg xmlns='http://www.w3.org/2000/svg' fill='white'>
+        <svg
+          xmlns='http://www.w3.org/2000/svg'
+          className='fill-white group-[.active]:fill-secondary-100 transition-all'
+        >
           <polygon points='2,1.7 7.3,1.7 7.3,0 0,0 0,21.8 7.3,21.8 7.3,20.1 2,20.1 ' />
         </svg>
         <svg
           xmlns='http://www.w3.org/2000/svg'
           fill='white'
-          className='-scale-100'
+          className='fill-white group-[.active]:fill-secondary-100 -scale-100  transition-all'
         >
           <polygon points='2,1.7 7.3,1.7 7.3,0 0,0 0,21.8 7.3,21.8 7.3,20.1 2,20.1 ' />
         </svg>

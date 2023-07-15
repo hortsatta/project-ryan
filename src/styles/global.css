@@ -37,4 +37,12 @@
   a:hover {
     @apply underline;
   }
+
+  .book {
+    max-width: 860px;
+  }
+
+  .book p {
+    text-align: justify;
+  }
 }

@@ -1577,6 +1577,8 @@ type Query = {
   readonly allSiteFunction: SiteFunctionConnection;
   readonly allSitePage: SitePageConnection;
   readonly allSitePlugin: SitePluginConnection;
+  readonly allStrapiAboutPage: STRAPI_ABOUT_PAGEConnection;
+  readonly allStrapiAboutPageContentTextnode: STRAPI_ABOUT_PAGE_CONTENT_TEXTNODEConnection;
   readonly allStrapiComponentListWhyChooseUsList: STRAPI__COMPONENT_LIST_WHY_CHOOSE_US_LISTConnection;
   readonly allStrapiHomePage: STRAPI_HOME_PAGEConnection;
   readonly allStrapiHomePageAboutuscontentTextnode: STRAPI_HOME_PAGE_ABOUTUSCONTENT_TEXTNODEConnection;
@@ -1590,6 +1592,8 @@ type Query = {
   readonly allStrapiMedia: STRAPI__MEDIAConnection;
   readonly allStrapiService: STRAPI_SERVICEConnection;
   readonly allStrapiServiceContentTextnode: STRAPI_SERVICE_CONTENT_TEXTNODEConnection;
+  readonly allStrapiServicesPage: STRAPI_SERVICES_PAGEConnection;
+  readonly allStrapiServicesPageContentTextnode: STRAPI_SERVICES_PAGE_CONTENT_TEXTNODEConnection;
   readonly directory: Maybe<Directory>;
   readonly file: Maybe<File>;
   readonly imageSharp: Maybe<ImageSharp>;
@@ -1599,6 +1603,8 @@ type Query = {
   readonly siteFunction: Maybe<SiteFunction>;
   readonly sitePage: Maybe<SitePage>;
   readonly sitePlugin: Maybe<SitePlugin>;
+  readonly strapiAboutPage: Maybe<STRAPI_ABOUT_PAGE>;
+  readonly strapiAboutPageContentTextnode: Maybe<STRAPI_ABOUT_PAGE_CONTENT_TEXTNODE>;
   readonly strapiComponentListWhyChooseUsList: Maybe<STRAPI__COMPONENT_LIST_WHY_CHOOSE_US_LIST>;
   readonly strapiHomePage: Maybe<STRAPI_HOME_PAGE>;
   readonly strapiHomePageAboutuscontentTextnode: Maybe<STRAPI_HOME_PAGE_ABOUTUSCONTENT_TEXTNODE>;
@@ -1612,6 +1618,8 @@ type Query = {
   readonly strapiMedia: Maybe<STRAPI__MEDIA>;
   readonly strapiService: Maybe<STRAPI_SERVICE>;
   readonly strapiServiceContentTextnode: Maybe<STRAPI_SERVICE_CONTENT_TEXTNODE>;
+  readonly strapiServicesPage: Maybe<STRAPI_SERVICES_PAGE>;
+  readonly strapiServicesPageContentTextnode: Maybe<STRAPI_SERVICES_PAGE_CONTENT_TEXTNODE>;
 };
 
 
@@ -1684,6 +1692,22 @@ type Query_allSitePluginArgs = {
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
   sort: InputMaybe<ReadonlyArray<InputMaybe<SitePluginSortInput>>>;
+};
+
+
+type Query_allStrapiAboutPageArgs = {
+  filter: InputMaybe<STRAPI_ABOUT_PAGEFilterInput>;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<STRAPI_ABOUT_PAGESortInput>>>;
+};
+
+
+type Query_allStrapiAboutPageContentTextnodeArgs = {
+  filter: InputMaybe<STRAPI_ABOUT_PAGE_CONTENT_TEXTNODEFilterInput>;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<STRAPI_ABOUT_PAGE_CONTENT_TEXTNODESortInput>>>;
 };
 
 
@@ -1788,6 +1812,22 @@ type Query_allStrapiServiceContentTextnodeArgs = {
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
   sort: InputMaybe<ReadonlyArray<InputMaybe<STRAPI_SERVICE_CONTENT_TEXTNODESortInput>>>;
+};
+
+
+type Query_allStrapiServicesPageArgs = {
+  filter: InputMaybe<STRAPI_SERVICES_PAGEFilterInput>;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<STRAPI_SERVICES_PAGESortInput>>>;
+};
+
+
+type Query_allStrapiServicesPageContentTextnodeArgs = {
+  filter: InputMaybe<STRAPI_SERVICES_PAGE_CONTENT_TEXTNODEFilterInput>;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<STRAPI_SERVICES_PAGE_CONTENT_TEXTNODESortInput>>>;
 };
 
 
@@ -1978,6 +2018,31 @@ type Query_sitePluginArgs = {
 };
 
 
+type Query_strapiAboutPageArgs = {
+  children: InputMaybe<NodeFilterListInput>;
+  content: InputMaybe<STRAPI_ABOUT_PAGEContentFilterInput>;
+  createdAt: InputMaybe<DateQueryOperatorInput>;
+  id: InputMaybe<StringQueryOperatorInput>;
+  internal: InputMaybe<InternalFilterInput>;
+  parent: InputMaybe<NodeFilterInput>;
+  publishedAt: InputMaybe<DateQueryOperatorInput>;
+  strapi_id: InputMaybe<IntQueryOperatorInput>;
+  title: InputMaybe<StringQueryOperatorInput>;
+  updatedAt: InputMaybe<DateQueryOperatorInput>;
+};
+
+
+type Query_strapiAboutPageContentTextnodeArgs = {
+  childMarkdownRemark: InputMaybe<MarkdownRemarkFilterInput>;
+  children: InputMaybe<NodeFilterListInput>;
+  childrenMarkdownRemark: InputMaybe<MarkdownRemarkFilterListInput>;
+  content: InputMaybe<StringQueryOperatorInput>;
+  id: InputMaybe<StringQueryOperatorInput>;
+  internal: InputMaybe<InternalFilterInput>;
+  parent: InputMaybe<NodeFilterInput>;
+};
+
+
 type Query_strapiComponentListWhyChooseUsListArgs = {
   children: InputMaybe<NodeFilterListInput>;
   content: InputMaybe<StringQueryOperatorInput>;
@@ -2146,6 +2211,337 @@ type Query_strapiServiceContentTextnodeArgs = {
   id: InputMaybe<StringQueryOperatorInput>;
   internal: InputMaybe<InternalFilterInput>;
   parent: InputMaybe<NodeFilterInput>;
+};
+
+
+type Query_strapiServicesPageArgs = {
+  children: InputMaybe<NodeFilterListInput>;
+  content: InputMaybe<STRAPI_SERVICES_PAGEContentFilterInput>;
+  createdAt: InputMaybe<DateQueryOperatorInput>;
+  id: InputMaybe<StringQueryOperatorInput>;
+  internal: InputMaybe<InternalFilterInput>;
+  parent: InputMaybe<NodeFilterInput>;
+  publishedAt: InputMaybe<DateQueryOperatorInput>;
+  strapi_id: InputMaybe<IntQueryOperatorInput>;
+  title: InputMaybe<StringQueryOperatorInput>;
+  updatedAt: InputMaybe<DateQueryOperatorInput>;
+};
+
+
+type Query_strapiServicesPageContentTextnodeArgs = {
+  childMarkdownRemark: InputMaybe<MarkdownRemarkFilterInput>;
+  children: InputMaybe<NodeFilterListInput>;
+  childrenMarkdownRemark: InputMaybe<MarkdownRemarkFilterListInput>;
+  content: InputMaybe<StringQueryOperatorInput>;
+  id: InputMaybe<StringQueryOperatorInput>;
+  internal: InputMaybe<InternalFilterInput>;
+  parent: InputMaybe<NodeFilterInput>;
+};
+
+type STRAPI_ABOUT_PAGE = Node & {
+  readonly children: ReadonlyArray<Node>;
+  readonly content: Maybe<STRAPI_ABOUT_PAGEContent>;
+  readonly createdAt: Maybe<Scalars['Date']>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly parent: Maybe<Node>;
+  readonly publishedAt: Maybe<Scalars['Date']>;
+  readonly strapi_id: Maybe<Scalars['Int']>;
+  readonly title: Maybe<Scalars['String']>;
+  readonly updatedAt: Maybe<Scalars['Date']>;
+};
+
+
+type STRAPI_ABOUT_PAGE_createdAtArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+
+type STRAPI_ABOUT_PAGE_publishedAtArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+
+type STRAPI_ABOUT_PAGE_updatedAtArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+type STRAPI_ABOUT_PAGEConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<STRAPI_ABOUT_PAGEEdge>;
+  readonly group: ReadonlyArray<STRAPI_ABOUT_PAGEGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<STRAPI_ABOUT_PAGE>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type STRAPI_ABOUT_PAGEConnection_distinctArgs = {
+  field: STRAPI_ABOUT_PAGEFieldSelector;
+};
+
+
+type STRAPI_ABOUT_PAGEConnection_groupArgs = {
+  field: STRAPI_ABOUT_PAGEFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type STRAPI_ABOUT_PAGEConnection_maxArgs = {
+  field: STRAPI_ABOUT_PAGEFieldSelector;
+};
+
+
+type STRAPI_ABOUT_PAGEConnection_minArgs = {
+  field: STRAPI_ABOUT_PAGEFieldSelector;
+};
+
+
+type STRAPI_ABOUT_PAGEConnection_sumArgs = {
+  field: STRAPI_ABOUT_PAGEFieldSelector;
+};
+
+type STRAPI_ABOUT_PAGEContent = {
+  readonly data: Maybe<STRAPI_ABOUT_PAGE_CONTENT_TEXTNODE>;
+};
+
+type STRAPI_ABOUT_PAGEContentFieldSelector = {
+  readonly data: InputMaybe<STRAPI_ABOUT_PAGE_CONTENT_TEXTNODEFieldSelector>;
+};
+
+type STRAPI_ABOUT_PAGEContentFilterInput = {
+  readonly data: InputMaybe<STRAPI_ABOUT_PAGE_CONTENT_TEXTNODEFilterInput>;
+};
+
+type STRAPI_ABOUT_PAGEContentSortInput = {
+  readonly data: InputMaybe<STRAPI_ABOUT_PAGE_CONTENT_TEXTNODESortInput>;
+};
+
+type STRAPI_ABOUT_PAGEEdge = {
+  readonly next: Maybe<STRAPI_ABOUT_PAGE>;
+  readonly node: STRAPI_ABOUT_PAGE;
+  readonly previous: Maybe<STRAPI_ABOUT_PAGE>;
+};
+
+type STRAPI_ABOUT_PAGEFieldSelector = {
+  readonly children: InputMaybe<NodeFieldSelector>;
+  readonly content: InputMaybe<STRAPI_ABOUT_PAGEContentFieldSelector>;
+  readonly createdAt: InputMaybe<FieldSelectorEnum>;
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly internal: InputMaybe<InternalFieldSelector>;
+  readonly parent: InputMaybe<NodeFieldSelector>;
+  readonly publishedAt: InputMaybe<FieldSelectorEnum>;
+  readonly strapi_id: InputMaybe<FieldSelectorEnum>;
+  readonly title: InputMaybe<FieldSelectorEnum>;
+  readonly updatedAt: InputMaybe<FieldSelectorEnum>;
+};
+
+type STRAPI_ABOUT_PAGEFilterInput = {
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly content: InputMaybe<STRAPI_ABOUT_PAGEContentFilterInput>;
+  readonly createdAt: InputMaybe<DateQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly publishedAt: InputMaybe<DateQueryOperatorInput>;
+  readonly strapi_id: InputMaybe<IntQueryOperatorInput>;
+  readonly title: InputMaybe<StringQueryOperatorInput>;
+  readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
+};
+
+type STRAPI_ABOUT_PAGEGroupConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<STRAPI_ABOUT_PAGEEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<STRAPI_ABOUT_PAGEGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<STRAPI_ABOUT_PAGE>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type STRAPI_ABOUT_PAGEGroupConnection_distinctArgs = {
+  field: STRAPI_ABOUT_PAGEFieldSelector;
+};
+
+
+type STRAPI_ABOUT_PAGEGroupConnection_groupArgs = {
+  field: STRAPI_ABOUT_PAGEFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type STRAPI_ABOUT_PAGEGroupConnection_maxArgs = {
+  field: STRAPI_ABOUT_PAGEFieldSelector;
+};
+
+
+type STRAPI_ABOUT_PAGEGroupConnection_minArgs = {
+  field: STRAPI_ABOUT_PAGEFieldSelector;
+};
+
+
+type STRAPI_ABOUT_PAGEGroupConnection_sumArgs = {
+  field: STRAPI_ABOUT_PAGEFieldSelector;
+};
+
+type STRAPI_ABOUT_PAGESortInput = {
+  readonly children: InputMaybe<NodeSortInput>;
+  readonly content: InputMaybe<STRAPI_ABOUT_PAGEContentSortInput>;
+  readonly createdAt: InputMaybe<SortOrderEnum>;
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly internal: InputMaybe<InternalSortInput>;
+  readonly parent: InputMaybe<NodeSortInput>;
+  readonly publishedAt: InputMaybe<SortOrderEnum>;
+  readonly strapi_id: InputMaybe<SortOrderEnum>;
+  readonly title: InputMaybe<SortOrderEnum>;
+  readonly updatedAt: InputMaybe<SortOrderEnum>;
+};
+
+type STRAPI_ABOUT_PAGE_CONTENT_TEXTNODE = Node & {
+  /** Returns the first child node of type MarkdownRemark or null if there are no children of given type on this node */
+  readonly childMarkdownRemark: Maybe<MarkdownRemark>;
+  readonly children: ReadonlyArray<Node>;
+  /** Returns all children nodes filtered by type MarkdownRemark */
+  readonly childrenMarkdownRemark: Maybe<ReadonlyArray<Maybe<MarkdownRemark>>>;
+  readonly content: Maybe<Scalars['String']>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly parent: Maybe<Node>;
+};
+
+type STRAPI_ABOUT_PAGE_CONTENT_TEXTNODEConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<STRAPI_ABOUT_PAGE_CONTENT_TEXTNODEEdge>;
+  readonly group: ReadonlyArray<STRAPI_ABOUT_PAGE_CONTENT_TEXTNODEGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<STRAPI_ABOUT_PAGE_CONTENT_TEXTNODE>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type STRAPI_ABOUT_PAGE_CONTENT_TEXTNODEConnection_distinctArgs = {
+  field: STRAPI_ABOUT_PAGE_CONTENT_TEXTNODEFieldSelector;
+};
+
+
+type STRAPI_ABOUT_PAGE_CONTENT_TEXTNODEConnection_groupArgs = {
+  field: STRAPI_ABOUT_PAGE_CONTENT_TEXTNODEFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type STRAPI_ABOUT_PAGE_CONTENT_TEXTNODEConnection_maxArgs = {
+  field: STRAPI_ABOUT_PAGE_CONTENT_TEXTNODEFieldSelector;
+};
+
+
+type STRAPI_ABOUT_PAGE_CONTENT_TEXTNODEConnection_minArgs = {
+  field: STRAPI_ABOUT_PAGE_CONTENT_TEXTNODEFieldSelector;
+};
+
+
+type STRAPI_ABOUT_PAGE_CONTENT_TEXTNODEConnection_sumArgs = {
+  field: STRAPI_ABOUT_PAGE_CONTENT_TEXTNODEFieldSelector;
+};
+
+type STRAPI_ABOUT_PAGE_CONTENT_TEXTNODEEdge = {
+  readonly next: Maybe<STRAPI_ABOUT_PAGE_CONTENT_TEXTNODE>;
+  readonly node: STRAPI_ABOUT_PAGE_CONTENT_TEXTNODE;
+  readonly previous: Maybe<STRAPI_ABOUT_PAGE_CONTENT_TEXTNODE>;
+};
+
+type STRAPI_ABOUT_PAGE_CONTENT_TEXTNODEFieldSelector = {
+  readonly childMarkdownRemark: InputMaybe<MarkdownRemarkFieldSelector>;
+  readonly children: InputMaybe<NodeFieldSelector>;
+  readonly childrenMarkdownRemark: InputMaybe<MarkdownRemarkFieldSelector>;
+  readonly content: InputMaybe<FieldSelectorEnum>;
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly internal: InputMaybe<InternalFieldSelector>;
+  readonly parent: InputMaybe<NodeFieldSelector>;
+};
+
+type STRAPI_ABOUT_PAGE_CONTENT_TEXTNODEFilterInput = {
+  readonly childMarkdownRemark: InputMaybe<MarkdownRemarkFilterInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly childrenMarkdownRemark: InputMaybe<MarkdownRemarkFilterListInput>;
+  readonly content: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+};
+
+type STRAPI_ABOUT_PAGE_CONTENT_TEXTNODEGroupConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<STRAPI_ABOUT_PAGE_CONTENT_TEXTNODEEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<STRAPI_ABOUT_PAGE_CONTENT_TEXTNODEGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<STRAPI_ABOUT_PAGE_CONTENT_TEXTNODE>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type STRAPI_ABOUT_PAGE_CONTENT_TEXTNODEGroupConnection_distinctArgs = {
+  field: STRAPI_ABOUT_PAGE_CONTENT_TEXTNODEFieldSelector;
+};
+
+
+type STRAPI_ABOUT_PAGE_CONTENT_TEXTNODEGroupConnection_groupArgs = {
+  field: STRAPI_ABOUT_PAGE_CONTENT_TEXTNODEFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type STRAPI_ABOUT_PAGE_CONTENT_TEXTNODEGroupConnection_maxArgs = {
+  field: STRAPI_ABOUT_PAGE_CONTENT_TEXTNODEFieldSelector;
+};
+
+
+type STRAPI_ABOUT_PAGE_CONTENT_TEXTNODEGroupConnection_minArgs = {
+  field: STRAPI_ABOUT_PAGE_CONTENT_TEXTNODEFieldSelector;
+};
+
+
+type STRAPI_ABOUT_PAGE_CONTENT_TEXTNODEGroupConnection_sumArgs = {
+  field: STRAPI_ABOUT_PAGE_CONTENT_TEXTNODEFieldSelector;
+};
+
+type STRAPI_ABOUT_PAGE_CONTENT_TEXTNODESortInput = {
+  readonly childMarkdownRemark: InputMaybe<MarkdownRemarkSortInput>;
+  readonly children: InputMaybe<NodeSortInput>;
+  readonly childrenMarkdownRemark: InputMaybe<MarkdownRemarkSortInput>;
+  readonly content: InputMaybe<SortOrderEnum>;
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly internal: InputMaybe<InternalSortInput>;
+  readonly parent: InputMaybe<NodeSortInput>;
 };
 
 type STRAPI_HOME_PAGE = Node & {
@@ -3712,6 +4108,312 @@ type STRAPI_SERVICEGroupConnection_sumArgs = {
   field: STRAPI_SERVICEFieldSelector;
 };
 
+type STRAPI_SERVICES_PAGE = Node & {
+  readonly children: ReadonlyArray<Node>;
+  readonly content: Maybe<STRAPI_SERVICES_PAGEContent>;
+  readonly createdAt: Maybe<Scalars['Date']>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly parent: Maybe<Node>;
+  readonly publishedAt: Maybe<Scalars['Date']>;
+  readonly strapi_id: Maybe<Scalars['Int']>;
+  readonly title: Maybe<Scalars['String']>;
+  readonly updatedAt: Maybe<Scalars['Date']>;
+};
+
+
+type STRAPI_SERVICES_PAGE_createdAtArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+
+type STRAPI_SERVICES_PAGE_publishedAtArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+
+type STRAPI_SERVICES_PAGE_updatedAtArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+type STRAPI_SERVICES_PAGEConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<STRAPI_SERVICES_PAGEEdge>;
+  readonly group: ReadonlyArray<STRAPI_SERVICES_PAGEGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<STRAPI_SERVICES_PAGE>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type STRAPI_SERVICES_PAGEConnection_distinctArgs = {
+  field: STRAPI_SERVICES_PAGEFieldSelector;
+};
+
+
+type STRAPI_SERVICES_PAGEConnection_groupArgs = {
+  field: STRAPI_SERVICES_PAGEFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type STRAPI_SERVICES_PAGEConnection_maxArgs = {
+  field: STRAPI_SERVICES_PAGEFieldSelector;
+};
+
+
+type STRAPI_SERVICES_PAGEConnection_minArgs = {
+  field: STRAPI_SERVICES_PAGEFieldSelector;
+};
+
+
+type STRAPI_SERVICES_PAGEConnection_sumArgs = {
+  field: STRAPI_SERVICES_PAGEFieldSelector;
+};
+
+type STRAPI_SERVICES_PAGEContent = {
+  readonly data: Maybe<STRAPI_SERVICES_PAGE_CONTENT_TEXTNODE>;
+};
+
+type STRAPI_SERVICES_PAGEContentFieldSelector = {
+  readonly data: InputMaybe<STRAPI_SERVICES_PAGE_CONTENT_TEXTNODEFieldSelector>;
+};
+
+type STRAPI_SERVICES_PAGEContentFilterInput = {
+  readonly data: InputMaybe<STRAPI_SERVICES_PAGE_CONTENT_TEXTNODEFilterInput>;
+};
+
+type STRAPI_SERVICES_PAGEContentSortInput = {
+  readonly data: InputMaybe<STRAPI_SERVICES_PAGE_CONTENT_TEXTNODESortInput>;
+};
+
+type STRAPI_SERVICES_PAGEEdge = {
+  readonly next: Maybe<STRAPI_SERVICES_PAGE>;
+  readonly node: STRAPI_SERVICES_PAGE;
+  readonly previous: Maybe<STRAPI_SERVICES_PAGE>;
+};
+
+type STRAPI_SERVICES_PAGEFieldSelector = {
+  readonly children: InputMaybe<NodeFieldSelector>;
+  readonly content: InputMaybe<STRAPI_SERVICES_PAGEContentFieldSelector>;
+  readonly createdAt: InputMaybe<FieldSelectorEnum>;
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly internal: InputMaybe<InternalFieldSelector>;
+  readonly parent: InputMaybe<NodeFieldSelector>;
+  readonly publishedAt: InputMaybe<FieldSelectorEnum>;
+  readonly strapi_id: InputMaybe<FieldSelectorEnum>;
+  readonly title: InputMaybe<FieldSelectorEnum>;
+  readonly updatedAt: InputMaybe<FieldSelectorEnum>;
+};
+
+type STRAPI_SERVICES_PAGEFilterInput = {
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly content: InputMaybe<STRAPI_SERVICES_PAGEContentFilterInput>;
+  readonly createdAt: InputMaybe<DateQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly publishedAt: InputMaybe<DateQueryOperatorInput>;
+  readonly strapi_id: InputMaybe<IntQueryOperatorInput>;
+  readonly title: InputMaybe<StringQueryOperatorInput>;
+  readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
+};
+
+type STRAPI_SERVICES_PAGEGroupConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<STRAPI_SERVICES_PAGEEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<STRAPI_SERVICES_PAGEGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<STRAPI_SERVICES_PAGE>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type STRAPI_SERVICES_PAGEGroupConnection_distinctArgs = {
+  field: STRAPI_SERVICES_PAGEFieldSelector;
+};
+
+
+type STRAPI_SERVICES_PAGEGroupConnection_groupArgs = {
+  field: STRAPI_SERVICES_PAGEFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type STRAPI_SERVICES_PAGEGroupConnection_maxArgs = {
+  field: STRAPI_SERVICES_PAGEFieldSelector;
+};
+
+
+type STRAPI_SERVICES_PAGEGroupConnection_minArgs = {
+  field: STRAPI_SERVICES_PAGEFieldSelector;
+};
+
+
+type STRAPI_SERVICES_PAGEGroupConnection_sumArgs = {
+  field: STRAPI_SERVICES_PAGEFieldSelector;
+};
+
+type STRAPI_SERVICES_PAGESortInput = {
+  readonly children: InputMaybe<NodeSortInput>;
+  readonly content: InputMaybe<STRAPI_SERVICES_PAGEContentSortInput>;
+  readonly createdAt: InputMaybe<SortOrderEnum>;
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly internal: InputMaybe<InternalSortInput>;
+  readonly parent: InputMaybe<NodeSortInput>;
+  readonly publishedAt: InputMaybe<SortOrderEnum>;
+  readonly strapi_id: InputMaybe<SortOrderEnum>;
+  readonly title: InputMaybe<SortOrderEnum>;
+  readonly updatedAt: InputMaybe<SortOrderEnum>;
+};
+
+type STRAPI_SERVICES_PAGE_CONTENT_TEXTNODE = Node & {
+  /** Returns the first child node of type MarkdownRemark or null if there are no children of given type on this node */
+  readonly childMarkdownRemark: Maybe<MarkdownRemark>;
+  readonly children: ReadonlyArray<Node>;
+  /** Returns all children nodes filtered by type MarkdownRemark */
+  readonly childrenMarkdownRemark: Maybe<ReadonlyArray<Maybe<MarkdownRemark>>>;
+  readonly content: Maybe<Scalars['String']>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly parent: Maybe<Node>;
+};
+
+type STRAPI_SERVICES_PAGE_CONTENT_TEXTNODEConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<STRAPI_SERVICES_PAGE_CONTENT_TEXTNODEEdge>;
+  readonly group: ReadonlyArray<STRAPI_SERVICES_PAGE_CONTENT_TEXTNODEGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<STRAPI_SERVICES_PAGE_CONTENT_TEXTNODE>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type STRAPI_SERVICES_PAGE_CONTENT_TEXTNODEConnection_distinctArgs = {
+  field: STRAPI_SERVICES_PAGE_CONTENT_TEXTNODEFieldSelector;
+};
+
+
+type STRAPI_SERVICES_PAGE_CONTENT_TEXTNODEConnection_groupArgs = {
+  field: STRAPI_SERVICES_PAGE_CONTENT_TEXTNODEFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type STRAPI_SERVICES_PAGE_CONTENT_TEXTNODEConnection_maxArgs = {
+  field: STRAPI_SERVICES_PAGE_CONTENT_TEXTNODEFieldSelector;
+};
+
+
+type STRAPI_SERVICES_PAGE_CONTENT_TEXTNODEConnection_minArgs = {
+  field: STRAPI_SERVICES_PAGE_CONTENT_TEXTNODEFieldSelector;
+};
+
+
+type STRAPI_SERVICES_PAGE_CONTENT_TEXTNODEConnection_sumArgs = {
+  field: STRAPI_SERVICES_PAGE_CONTENT_TEXTNODEFieldSelector;
+};
+
+type STRAPI_SERVICES_PAGE_CONTENT_TEXTNODEEdge = {
+  readonly next: Maybe<STRAPI_SERVICES_PAGE_CONTENT_TEXTNODE>;
+  readonly node: STRAPI_SERVICES_PAGE_CONTENT_TEXTNODE;
+  readonly previous: Maybe<STRAPI_SERVICES_PAGE_CONTENT_TEXTNODE>;
+};
+
+type STRAPI_SERVICES_PAGE_CONTENT_TEXTNODEFieldSelector = {
+  readonly childMarkdownRemark: InputMaybe<MarkdownRemarkFieldSelector>;
+  readonly children: InputMaybe<NodeFieldSelector>;
+  readonly childrenMarkdownRemark: InputMaybe<MarkdownRemarkFieldSelector>;
+  readonly content: InputMaybe<FieldSelectorEnum>;
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly internal: InputMaybe<InternalFieldSelector>;
+  readonly parent: InputMaybe<NodeFieldSelector>;
+};
+
+type STRAPI_SERVICES_PAGE_CONTENT_TEXTNODEFilterInput = {
+  readonly childMarkdownRemark: InputMaybe<MarkdownRemarkFilterInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly childrenMarkdownRemark: InputMaybe<MarkdownRemarkFilterListInput>;
+  readonly content: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+};
+
+type STRAPI_SERVICES_PAGE_CONTENT_TEXTNODEGroupConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<STRAPI_SERVICES_PAGE_CONTENT_TEXTNODEEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<STRAPI_SERVICES_PAGE_CONTENT_TEXTNODEGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<STRAPI_SERVICES_PAGE_CONTENT_TEXTNODE>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type STRAPI_SERVICES_PAGE_CONTENT_TEXTNODEGroupConnection_distinctArgs = {
+  field: STRAPI_SERVICES_PAGE_CONTENT_TEXTNODEFieldSelector;
+};
+
+
+type STRAPI_SERVICES_PAGE_CONTENT_TEXTNODEGroupConnection_groupArgs = {
+  field: STRAPI_SERVICES_PAGE_CONTENT_TEXTNODEFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type STRAPI_SERVICES_PAGE_CONTENT_TEXTNODEGroupConnection_maxArgs = {
+  field: STRAPI_SERVICES_PAGE_CONTENT_TEXTNODEFieldSelector;
+};
+
+
+type STRAPI_SERVICES_PAGE_CONTENT_TEXTNODEGroupConnection_minArgs = {
+  field: STRAPI_SERVICES_PAGE_CONTENT_TEXTNODEFieldSelector;
+};
+
+
+type STRAPI_SERVICES_PAGE_CONTENT_TEXTNODEGroupConnection_sumArgs = {
+  field: STRAPI_SERVICES_PAGE_CONTENT_TEXTNODEFieldSelector;
+};
+
+type STRAPI_SERVICES_PAGE_CONTENT_TEXTNODESortInput = {
+  readonly childMarkdownRemark: InputMaybe<MarkdownRemarkSortInput>;
+  readonly children: InputMaybe<NodeSortInput>;
+  readonly childrenMarkdownRemark: InputMaybe<MarkdownRemarkSortInput>;
+  readonly content: InputMaybe<SortOrderEnum>;
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly internal: InputMaybe<InternalSortInput>;
+  readonly parent: InputMaybe<NodeSortInput>;
+};
+
 type STRAPI_SERVICESortInput = {
   readonly children: InputMaybe<NodeSortInput>;
   readonly content: InputMaybe<STRAPI_SERVICEContentSortInput>;
@@ -5046,6 +5748,11 @@ type WebPOptions = {
   readonly quality: InputMaybe<Scalars['Int']>;
 };
 
+type AboutPageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type AboutPageQuery = { readonly strapiAboutPage: { readonly title: string | null, readonly content: { readonly data: { readonly childMarkdownRemark: { readonly html: string | null } | null } | null } | null } | null };
+
 type CoreLayoutQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -5083,6 +5790,11 @@ type IndexPageQueryVariables = Exact<{ [key: string]: never; }>;
 type IndexPageQuery = { readonly strapiHomePage: { readonly whyChooseUsList: ReadonlyArray<{ readonly title: string | null, readonly content: string | null } | null> | null } | null, readonly allStrapiService: { readonly nodes: ReadonlyArray<{ readonly slug: string | null, readonly title: string | null, readonly excerpt: string | null, readonly iconImage: { readonly localFile: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } | null }> }, readonly strapiHomePageWelcome: { readonly childMarkdownRemark: { readonly html: string | null, readonly frontmatter: { readonly title: string | null } | null } | null } | null, readonly strapiHomePageServices: { readonly childMarkdownRemark: { readonly html: string | null, readonly frontmatter: { readonly title: string | null } | null } | null } | null, readonly strapiHomePageAboutUs: { readonly childMarkdownRemark: { readonly html: string | null, readonly frontmatter: { readonly title: string | null } | null } | null } | null, readonly strapiHomePageTechnologies: { readonly childMarkdownRemark: { readonly html: string | null, readonly frontmatter: { readonly title: string | null } | null } | null } | null, readonly strapiHomePageWhyChooseUs: { readonly childMarkdownRemark: { readonly html: string | null, readonly frontmatter: { readonly title: string | null } | null } | null } | null, readonly strapiHomePageCallToAction: { readonly childMarkdownRemark: { readonly html: string | null, readonly frontmatter: { readonly title: string | null } | null } | null } | null };
 
 type markdownRemarkFragment = { readonly html: string | null, readonly frontmatter: { readonly title: string | null } | null };
+
+type ServicesPageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type ServicesPageQuery = { readonly strapiServicesPage: { readonly title: string | null, readonly content: { readonly data: { readonly childMarkdownRemark: { readonly html: string | null } | null } | null } | null } | null, readonly allStrapiService: { readonly nodes: ReadonlyArray<{ readonly title: string | null, readonly slug: string | null, readonly content: { readonly data: { readonly childMarkdownRemark: { readonly html: string | null } | null } | null } | null, readonly iconImage: { readonly localFile: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } | null }> } };
 
 
 }

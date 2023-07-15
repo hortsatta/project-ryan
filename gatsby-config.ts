@@ -8,7 +8,13 @@ const strapiConfig = {
   apiURL: process.env.STRAPI_API_URL,
   accessToken: process.env.STRAPI_TOKEN,
   collectionTypes: ['service'],
-  singleTypes: ['home-page', 'main-menu'],
+  singleTypes: [
+    'home-page',
+    'services-page',
+    'about-page',
+    'technologies-page',
+    'main-menu',
+  ],
   remoteFileHeaders: {
     /**
      * Customized request headers

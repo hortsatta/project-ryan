@@ -1,8 +1,9 @@
 import { useMemo } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
+import { AnimatePresence } from 'framer-motion';
 
+import { BaseSiteLogo } from '#components/base/base-site-logo.component';
 import { CoreHeader } from './core-header.component';
-import { CoreLogo } from './core-logo.component';
 import { CoreNav } from './core-nav.component';
 import { CoreFooter } from './core-footer.component';
 import { CoreFooterLinks } from './core-footer-links.component';
@@ -43,14 +44,16 @@ export function CoreLayout({ location, children }: PageProps) {
   return (
     <>
       <CoreHeader>
-        <CoreLogo isHome={isHome} />
+        <BaseSiteLogo className='pl-4' isHome={isHome} isHeader />
         <CoreNav
           majorLinks={majorLinks}
           minorLinks={minorLinks}
           isHome={isHome}
         />
       </CoreHeader>
-      <main className='min-h-screen'>{children}</main>
+      <main className='min-h-screen'>
+        <AnimatePresence mode='wait'>{children}</AnimatePresence>
+      </main>
       <CoreFooter>
         <CoreFooterLinks links={majorLinks} />
       </CoreFooter>

@@ -40,6 +40,7 @@ export const HomeWelcomeSection = memo(function ({
 
   return (
     <section
+      id='welcome'
       style={styles}
       className={cx(
         className,
