@@ -33,4 +33,8 @@
     @apply text-white/80;
     line-height: 28px;
   }
+
+  a:hover {
+    @apply underline;
+  }
 }
