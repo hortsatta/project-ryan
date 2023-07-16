@@ -1,7 +1,9 @@
 import { useMemo } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { AnimatePresence } from 'framer-motion';
+import { cx } from 'classix';
 
+import { useStore } from '#hooks/use-store.hook';
 import { BaseSiteLogo } from '#components/base/base-site-logo.component';
 import { CoreHeader } from './core-header.component';
 import { CoreNav } from './core-nav.component';
@@ -34,6 +36,8 @@ const query = graphql`
 `;
 
 export function CoreLayout({ location, children }: PageProps) {
+  const isPageTransitioning = useStore((state) => state.isPageTransitioning);
+
   const {
     site,
     strapiMainMenu: { major: majorLinks, minor: minorLinks },
@@ -57,6 +61,13 @@ export function CoreLayout({ location, children }: PageProps) {
       <CoreFooter>
         <CoreFooterLinks links={majorLinks} />
       </CoreFooter>
+      {/* Disable controls if page is transitioning */}
+      <div
+        className={cx(
+          'fixed top-0 left-0 w-full h-full cursor-not-allowed z-[99999] hidden',
+          isPageTransitioning && '!block',
+        )}
+      />
     </>
   );
 }

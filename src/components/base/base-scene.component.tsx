@@ -1,7 +1,8 @@
+import { useCallback, type ComponentProps } from 'react';
 import { cx } from 'classix';
 import { motion } from 'framer-motion';
 
-import type { ComponentProps } from 'react';
+import { useStore } from '#hooks/use-store.hook';
 
 type Props = ComponentProps<typeof motion.div> & {
   book?: boolean;
@@ -29,6 +30,26 @@ const animation = {
 };
 
 export function BaseScene({ className, book, children, ...moreProps }: Props) {
+  const setIsPageTransitioning = useStore(
+    (state) => state.setIsPageTransitioning,
+  );
+
+  const handleAnimationStart = useCallback((definition: any) => {
+    if (definition.opacity !== 0) {
+      return;
+    }
+
+    setIsPageTransitioning(true);
+  }, []);
+
+  const handleAnimationComplete = useCallback((definition: any) => {
+    if (definition.opacity !== 0) {
+      return;
+    }
+
+    setIsPageTransitioning(false);
+  }, []);
+
   return (
     <motion.div
       className={cx(
@@ -36,6 +57,8 @@ export function BaseScene({ className, book, children, ...moreProps }: Props) {
         book ? 'book' : 'max-w-main',
         className,
       )}
+      onAnimationStart={handleAnimationStart}
+      onAnimationComplete={handleAnimationComplete}
       {...animation}
       {...moreProps}
     >
