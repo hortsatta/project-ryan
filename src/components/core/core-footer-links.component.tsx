@@ -46,8 +46,8 @@ export const CoreFooterLinks = memo(function ({
           className='brightness-125 hover:!brightness-200 transition-[filter]'
         >
           <StaticImage
-            src='../../assets/images/social-messenger.png'
-            alt='messenger'
+            src='../../assets/images/social-facebook.png'
+            alt='facebook'
           />
         </a>
         <a
@@ -56,8 +56,8 @@ export const CoreFooterLinks = memo(function ({
           className='brightness-125 hover:!brightness-200 transition-[filter]'
         >
           <StaticImage
-            src='../../assets/images/social-facebook.png'
-            alt='facebook'
+            src='../../assets/images/social-messenger.png'
+            alt='messenger'
           />
         </a>
       </div>
