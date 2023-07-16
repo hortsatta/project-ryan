@@ -64,7 +64,7 @@ export function CoreLayout({ location, children }: PageProps) {
       {/* Disable controls if page is transitioning */}
       <div
         className={cx(
-          'fixed top-0 left-0 w-full h-full cursor-not-allowed z-[99999] hidden',
+          'fixed top-0 left-0 w-full h-full z-[99999] hidden',
           isPageTransitioning && '!block',
         )}
       />

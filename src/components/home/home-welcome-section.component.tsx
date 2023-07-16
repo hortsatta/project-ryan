@@ -16,7 +16,9 @@ type Props = ComponentProps<'section'> & {
   contentHtml?: string | TrustedHTML;
 };
 
-const styles = { height: window.innerHeight };
+const styles = {
+  height: typeof window !== 'undefined' ? window.innerHeight : 0,
+};
 const inViewOptions = { margin: '-133px 0px 0px 0px' };
 
 export const HomeWelcomeSection = memo(function ({
