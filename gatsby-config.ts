@@ -36,6 +36,18 @@ const config: GatsbyConfig = {
   // Learn more at: https://gatsby.dev/graphql-typegen
   graphqlTypegen: true,
   plugins: [
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: 'DEVO',
+        short_name: 'DEVO',
+        start_url: '/',
+        background_color: '#000000',
+        theme_color: '#000000',
+        display: 'standalone',
+        icon: 'src/assets/images/icon.png',
+      },
+    },
     'gatsby-plugin-image',
     {
       resolve: 'gatsby-plugin-sharp',
